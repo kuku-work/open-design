@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<title>設計風格提案</title>
+<style>
+:root{--page:#f5f5f3;--card:#fff;--fg:#262626;--fg2:#6b6b6b;--accent:#d97d35;
+--dark:#262626;--dark2:#c9c6be;--dark3:#9b978e;--imgnum:#888;--border:#e3e1dc;
+--z1:#fff;--z2:#fbfaf8;--z3:#efede8;
+--fd:Cambria,"Songti TC","Noto Serif TC",serif;
+--fb:Calibri,"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--dark);font-family:var(--fb);color:var(--fg);padding:18pt 0}
+.slide{position:relative;width:960pt;height:540pt;background:var(--page);
+overflow:hidden;margin:0 auto 18pt;box-shadow:0 2pt 12pt rgba(0,0,0,.4)}
+.bar{position:absolute;left:0;top:0;width:37.6pt;height:100%;background:var(--dark)}
+.rule{position:absolute;left:0;top:48.27pt;width:100%;height:.75pt;background:var(--dark)}
+.crumb{position:absolute;left:53.6pt;top:13.2pt;font-size:11pt;color:var(--fg2)}
+.nv{position:absolute;top:13.2pt;width:111.6pt;text-align:center;font-size:10pt;color:var(--border)}
+.nv.on{color:var(--fg);font-weight:600}
+.nvsep{position:absolute;top:13.2pt;width:.75pt;height:17pt;background:var(--border)}
+.ttl{position:absolute;font-size:19pt;font-weight:600;letter-spacing:.02em}
+.pgn{position:absolute;font-size:8pt;color:var(--imgnum)}
+.body{position:absolute;left:69.6pt;top:128pt;right:69.6pt;bottom:53.33pt}
+.bk{display:inline-block;min-width:52pt;padding:2pt 8pt;border:.75pt dashed var(--border);
+border-radius:3pt;background:var(--z2);color:var(--fg2);font-size:8.5pt;line-height:1.5}
+.vl2{display:block;font-size:9.5pt;line-height:1.7;color:var(--fg2)}
+.vl2::before{content:"• ";color:var(--accent)}
+.sep{background:var(--dark);color:#fff}
+.sep .bignum{position:absolute;left:696pt;top:-55.2pt;font-family:var(--fb);
+font-weight:700;font-size:373.33pt;line-height:1;color:#fff}
+.sep .chname{position:absolute;left:38.27pt;top:83.87pt}
+.sep .zh{font-size:29pt;font-weight:600;letter-spacing:.08em}
+.sep .en{font-size:29pt;font-weight:700;margin-top:6pt}
+.sep .toc{position:absolute;left:38.27pt;top:300pt;list-style:none;width:253.47pt}
+.sep .toc li{display:flex;justify-content:space-between;align-items:baseline;
+height:36.93pt;border-bottom:.75pt solid rgba(255,255,255,.55);font-size:11pt}
+.sep .toc em{font-style:normal;color:var(--accent)}
+/* 2.1 Brand Identity */
+.brandpage{position:relative;width:100%;height:100%;display:flex;flex-direction:column;
+align-items:center;justify-content:center;text-align:center;gap:26pt}
+.chain{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12pt;max-width:100%}
+.cbox{border:.75pt solid var(--border);border-radius:4pt;padding:14pt 20pt;min-width:110pt;
+background:var(--z1)}
+.cbox .cn{display:block;font-size:9pt;color:var(--accent);margin-bottom:6pt}
+.cbox b{font-size:15pt;font-weight:600}
+.carrow{font-size:16pt;color:var(--border)}
+.bp-tagline{display:flex;flex-direction:column;gap:6pt}
+.bp-tagline i{font-style:normal;font-family:var(--fd);font-size:14pt;color:var(--fg2)}
+.bp-tagline b{font-size:20pt;font-weight:700}
+.namehead{display:flex;flex-direction:column;gap:8pt}
+.namehead b{font-size:26pt;font-weight:700}
+.namehead span{font-size:12pt;color:var(--fg2)}
+.metaphors{display:flex;flex-direction:column;gap:4pt;text-align:left;max-width:520pt}
+.bp-slogan{display:flex;flex-direction:column;gap:6pt}
+.bp-slogan i{font-style:normal;font-family:var(--fd);font-size:13pt;color:var(--fg2)}
+.bp-slogan b{font-size:18pt;font-weight:700;color:var(--accent)}
+.tiers{display:flex;gap:18pt;width:100%;justify-content:center}
+.tier{flex:1;max-width:220pt;border:.75pt solid var(--border);border-radius:4pt;padding:16pt;
+background:var(--z1);text-align:left}
+.tier .tn{display:block;font-size:11pt;font-weight:700;color:var(--accent);margin-bottom:8pt;
+letter-spacing:.1em}
+.tier p{font-size:10pt;color:var(--fg2);line-height:1.6}
+.vocab{display:flex;gap:10pt;align-items:baseline;justify-content:center}
+.vocab label{font-size:9pt;color:var(--fg2);letter-spacing:.15em}
+.vocab span{font-size:11pt}
+.bp-main-tagline{font-family:var(--fd);font-size:16pt;color:var(--fg)}
+/* 2.2 Mood Board */
+.mbvisual{display:flex;gap:26pt;height:100%}
+.mbl{flex:1;display:flex;flex-direction:column;justify-content:center;gap:11pt;align-items:flex-start}
+.mbpill{background:var(--accent);color:#fff;font-size:9pt;padding:3pt 11pt;border-radius:9pt}
+.mbname{font-size:20pt;font-weight:600}
+.mbsec{margin-top:4pt}
+.mbsec.top{margin-top:0}
+.mbsec label{display:block;font-size:8pt;letter-spacing:.2em;color:var(--fg2);margin-bottom:5pt}
+.mbkw{display:flex;flex-wrap:wrap;gap:8pt 14pt}
+.mbimg{flex:0 0 auto;height:100%;background:var(--border);aspect-ratio:3/4}
+.mbphotos,.mblayout{width:100%;height:100%;display:flex;flex-direction:column;gap:18pt}
+.mbphotorow{display:flex;gap:10pt;align-items:center;justify-content:flex-start}
+.mbph{height:100%;aspect-ratio:4/5;background:var(--border);flex:0 0 auto}
+.mblayoutrow{display:flex;gap:14pt;align-items:center;justify-content:flex-start}
+.mblo{height:100%;aspect-ratio:3/2;background:var(--border);flex:0 0 auto}
+.recap{width:100%;border-collapse:collapse;font-size:10pt}
+.recap th{background:var(--z3);padding:8pt 11pt;text-align:left;font-weight:600}
+.recap td{padding:9pt 11pt;border-bottom:.5pt solid var(--border)}
+/* 2.3 Color Story Index */
+.cilead{font-size:14pt;font-weight:600;text-align:center;margin-bottom:20pt}
+.cigrid{display:flex;flex-wrap:wrap;gap:16pt;justify-content:center}
+.cicard{width:110pt;text-align:center}
+.ciimg{width:100%;aspect-ratio:3/4;background:var(--border);margin-bottom:8pt}
+.cicard i{display:inline-block;width:12pt;height:12pt;border-radius:50%;
+border:.5pt solid var(--border);vertical-align:middle;margin-right:5pt}
+.cicard span{font-size:9.5pt;color:var(--fg2)}
+/* 2.4 Color Emotion Page */
+.cspage{display:flex;gap:24pt;height:100%}
+.cshero{flex:0 0 auto;height:100%;aspect-ratio:3/4;background:var(--border)}
+.csbar{flex:1;display:flex;flex-direction:column;gap:10pt;justify-content:center;min-width:0}
+.cshead{display:flex;align-items:center;gap:8pt;font-size:10pt;color:var(--fg2)}
+.cshead i{display:inline-block;width:14pt;height:14pt;border-radius:50%;border:.5pt solid var(--border)}
+.cshead b{font-weight:700;color:var(--fg)}
+.csttl{font-family:var(--fd);font-size:17pt;font-weight:600;line-height:1.4}
+.csrow{display:flex;gap:10pt;align-items:baseline}
+.csrow label{flex:0 0 70pt;font-size:8pt;letter-spacing:.15em;color:var(--fg2)}
+.csvals{display:flex;flex-wrap:wrap;gap:4pt 12pt}
+.csvals .vl2{display:inline-block}
+.cstag{margin-top:4pt;font-size:10pt;color:var(--accent);border-top:.75pt solid var(--border);
+padding-top:10pt}
+.csphotos{display:flex;gap:10pt;margin-top:6pt;height:64pt}
+.csph{height:100%;aspect-ratio:1/1;background:var(--border);flex:0 0 auto}
+/* 2.5 Layout Options Comparison */
+.lorow{display:flex;gap:20pt;align-items:flex-start;justify-content:flex-start}
+.locard{flex:0 0 auto;display:flex;flex-direction:column;gap:9pt}
+.lomock{position:relative;background:var(--border)}
+.lozone{position:absolute;left:10%;top:60%;right:10%;bottom:12%;
+border:1pt dashed var(--dark3);background:rgba(155,151,142,.12)}
+.lometa{display:flex;flex-direction:column;gap:4pt}
+.lometa b{font-size:12pt;color:var(--accent)}
+.lometa span{font-size:9.5pt;color:var(--fg2)}
+.lometa i{font-style:normal;font-size:8.5pt;color:var(--fg2)}
+.lonote{position:absolute;left:0;bottom:0;font-size:8pt;color:var(--fg2)}
+</style>
+</head>
+<body>
+<section class="slide sep"><div class="bignum">2</div><div class="chname"><div class="zh">設計風格提案</div><div class="en">STYLE PROPOSAL</div></div><ul class="toc"><li><span>品牌識別</span><em>02</em></li></ul></section>
+<section class="slide"><div class="bar"></div><div class="rule"></div><div class="crumb">設計風格提案</div><div class="nv" style="left:619.33pt">Mood Board</div><div class="nv" style="left:726.93pt">色彩故事</div><div class="nv" style="left:836.53pt">排版方案</div><div class="nvsep" style="left:728.93pt"></div><div class="nvsep" style="left:838.53pt"></div><div class="ttl" style="left:69.6pt;top:69.47pt">品牌識別 － 品牌理念</div><div class="pgn" style="left:915.73pt;top:510.8pt">02</div><div class="body"><div class="brandpage"><div class="chain"><div class="cbox"><span class="cn">01</span><b><span class="bk">階段名稱</span></b></div><div class="carrow">→</div><div class="cbox"><span class="cn">02</span><b><span class="bk">階段名稱</span></b></div><div class="carrow">→</div><div class="cbox"><span class="cn">03</span><b><span class="bk">階段名稱</span></b></div><div class="carrow">→</div><div class="cbox"><span class="cn">04</span><b><span class="bk">階段名稱</span></b></div></div><div class="bp-tagline"><i><span class="bk">英文標語</span></i><b><span class="bk">中文標語</span></b></div></div></div></section>
+<section class="slide"><div class="bar"></div><div class="rule"></div><div class="crumb">設計風格提案</div><div class="nv" style="left:619.33pt">Mood Board</div><div class="nv" style="left:726.93pt">色彩故事</div><div class="nv" style="left:836.53pt">排版方案</div><div class="nvsep" style="left:728.93pt"></div><div class="nvsep" style="left:838.53pt"></div><div class="ttl" style="left:69.6pt;top:69.47pt">品牌識別 － 命名故事</div><div class="pgn" style="left:915.73pt;top:510.8pt">03</div><div class="body"><div class="brandpage"><div class="namehead"><b><span class="bk">品牌命名</span></b><span><span class="bk">命名公式</span></span></div><div class="metaphors"><span class="bk">隱喻段落</span><span class="bk">隱喻段落</span><span class="bk">隱喻段落</span></div><div class="bp-slogan"><i><span class="bk">英文 Slogan</span></i><b><span class="bk">中文 Slogan</span></b></div></div></div></section>
+<section class="slide"><div class="bar"></div><div class="rule"></div><div class="crumb">設計風格提案</div><div class="nv" style="left:619.33pt">Mood Board</div><div class="nv" style="left:726.93pt">色彩故事</div><div class="nv" style="left:836.53pt">排版方案</div><div class="nvsep" style="left:728.93pt"></div><div class="nvsep" style="left:838.53pt"></div><div class="ttl" style="left:69.6pt;top:69.47pt">品牌識別 － 識別系統</div><div class="pgn" style="left:915.73pt;top:510.8pt">04</div><div class="body"><div class="brandpage"><div class="tiers"><div class="tier"><span class="tn">LOGOTYPE</span><p><span class="bk">層級描述</span></p></div><div class="tier"><span class="tn">IDENTITY</span><p><span class="bk">層級描述</span></p></div><div class="tier"><span class="tn">SYSTEM</span><p><span class="bk">層級描述</span></p></div></div><div class="vocab"><label>設計語彙</label><span><span class="bk">設計語彙描述</span></span></div><div class="bp-main-tagline"><span class="bk">主標語</span></div></div></div></section>
+</body>
+</html>

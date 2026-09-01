@@ -105,3 +105,80 @@ part1:
       price_title: MSRP / 建議售價
       features_lead: '{n} 大特色勝出'
       colors_lead: '{n} 種顏色'
+part2:
+  chapter:
+    index: 2
+    zh: 設計風格提案
+    en: STYLE PROPOSAL
+  nav_sections:
+  - Mood Board
+  - 色彩故事
+  - 排版方案
+  brand: null
+  mood_boards: []
+  color_index_lead: null
+  layout_options: []
+  labels:
+    sections:
+      brand: 品牌識別
+      mood_board: Mood Board
+      mood_board_recap: Mood Board · Recap
+      color_index: 色彩故事索引
+      color_story: 色彩情緒
+      layout_options: 排版方案比較
+    brand_page:
+      philosophy_title: 品牌理念
+      naming_title: 命名故事
+      identity_title: 識別系統
+      logotype_label: LOGOTYPE
+      identity_label: IDENTITY
+      system_label: SYSTEM
+      vocabulary_label: 設計語彙
+    mood_board_page:
+      concept_label: CONCEPT
+      keywords_label: KEYWORDS
+      linked_pitch_label: 回連提案
+      photo_style_title: 情境氛圍照
+      layout_style_title: 資訊排版風格
+      recap_head:
+      - 代號
+      - 名稱
+      - CONCEPT
+      - 回連提案
+    color_story_page:
+      mood_label: MOOD
+      playlist_label: PLAYLIST
+      moment_label: MOMENT
+    layout_options_page:
+      whitespace_label: 留白比例
+      disclaimer: 範圍為示意，實拍會拍廣後裁切，不需精確對位。
+    placeholders:
+      brand_step: 階段名稱
+      brand_tagline_en: 英文標語
+      brand_tagline_zh: 中文標語
+      brand_name: 品牌命名
+      brand_formula: 命名公式
+      brand_metaphor: 隱喻段落
+      brand_slogan_en: 英文 Slogan
+      brand_slogan_zh: 中文 Slogan
+      brand_tier: 層級描述
+      brand_vocabulary: 設計語彙描述
+      brand_tagline_main: 主標語
+      mb_code: 方案代號
+      mb_name: 方案名稱
+      mb_concept: 一句話概念
+      mb_keyword: 關鍵字
+      mb_linked_pitch: 回連提案
+      mb_photo_style: 攝影風格說明
+      mb_layout_style: 排版調性說明
+      color_index_lead: 色彩故事總綱
+      color_name: 色名
+      color_hex: 色號
+      color_story_title: 故事標題
+      color_mood: 情緒描述
+      color_playlist: 歌單詞彙
+      color_moment: 時刻描述
+      color_closing_tag: 收尾標籤
+      lo_code: 方案代號
+      lo_note: 一句話說明
+      lo_whitespace: 留白比例

@@ -1,0 +1,478 @@
+product_spec:
+  price: NT$1,280
+  price_positioning: 六面計時器的中價位甜蜜點，介於機械番茄鐘與國際追蹤裝置之間
+  weight: 約 95g／顆（估值，官網未公布，比照同類六面計時器）
+  positioning_statement: 不追求功能疊加，只做好一件事：翻過去，就開始。
+  features:
+  - keyword: 翻轉即啟動
+    spec: 翻至對應面即開始倒數
+  - keyword: 六面時間
+    spec: 內建多組常用時間設定
+  - keyword: 三種提示
+    spec: 聲音／震動／靜音
+colors:
+- name_zh: 米白
+  name_en: Cream White
+  hex: '#F2EDE4'
+  story_title: Clean Start｜清空重來
+  mood:
+  - FRESH 清爽
+  - LIGHT 輕盈
+  - OPEN 開闊
+  playlist:
+  - ACOUSTIC 原聲
+  - MORNING JAZZ 晨間爵士
+  - PIANO 鋼琴
+  moment:
+  - Morning 早晨
+  - Desk 書桌
+  - First Task 第一件事
+  closing_tag: FLIP × FOCUS × FINISH｜翻轉 × 專注 × 完成
+- name_zh: 岩灰
+  name_en: Stone Gray
+  hex: '#86847E'
+  story_title: Deep Focus｜深度專注
+  mood:
+  - CALM 沉靜
+  - STEADY 穩定
+  - QUIET 安靜
+  playlist:
+  - LO-FI
+  - AMBIENT 氛圍音樂
+  - INSTRUMENTAL 純音樂
+  moment:
+  - Afternoon 午後
+  - Long Session 長時段
+  - Study 讀書
+  closing_tag: FLIP × FOCUS × FINISH｜翻轉 × 專注 × 完成
+- name_zh: 燕麥棕
+  name_en: Oat Brown
+  hex: '#B8987A'
+  story_title: Warm Pause｜溫柔暫停
+  mood:
+  - WARM 溫暖
+  - SOFT 柔和
+  - COZY 舒適
+  playlist:
+  - BOSSA NOVA
+  - COFFEE HOUSE 咖啡館
+  - FOLK 民謠
+  moment:
+  - Break 休息
+  - Tea Time 茶歇
+  - Reading 閱讀
+  closing_tag: FLIP × FOCUS × FINISH｜翻轉 × 專注 × 完成
+- name_zh: 霧霾藍
+  name_en: Misty Blue
+  hex: '#7C93A3'
+  story_title: Night Rhythm｜夜的節奏
+  mood:
+  - COOL 冷靜
+  - DEEP 深沉
+  - FREE 自由
+  playlist:
+  - SYNTH 合成器
+  - DOWNTEMPO 慢節奏
+  - NIGHT DRIVE 夜間駕駛
+  moment:
+  - Night 夜晚
+  - Workout 健身
+  - Wind Down 放鬆
+  closing_tag: FLIP × FOCUS × FINISH｜翻轉 × 專注 × 完成
+part1:
+  product_name: ADAM FRIENDS 六面計時器
+  sections_order:
+  - spec
+  - matrix
+  - swot
+  - audience
+  - comms
+  - pitch
+  nav_sections:
+  - 定位矩陣
+  - 優勢與挑戰
+  - 受眾輪廓
+  chapter:
+    index: 1
+    zh: 行銷 Brief
+    en: MARKETING BRIEF
+  positioning_matrix:
+    axis_v:
+      tag: 定位訴求
+      top: 效率工具
+      bottom: 生活美學
+    axis_h:
+      tag: 操作方式
+      left: 直覺翻轉
+      right: 精準設定
+    quadrants:
+      tl:
+      - 翻轉即用，免手動設定
+      - 訴求番茄鐘式短衝刺專注
+      tr:
+      - 需手動設定或搭配 App 記錄
+      - 多用於教育與專案時間管理
+      bl:
+      - 強調桌面質感與生活儀式感
+      - 翻轉直覺不因設計犧牲
+      br:
+      - 外觀風格化但仍須手動調整
+      - 多為裝飾型時鐘或複合家電
+    competitors:
+    - name: TickTime
+      x: -0.55
+      y: 0.5
+    - name: 轉轉計時器
+      x: -0.7
+      y: 0.1
+    - name: EZlife
+      x: -0.6
+      y: -0.05
+    - name: Time Timer
+      x: 0.35
+      y: 0.65
+    - name: Timeular
+      x: 0.7
+      y: 0.8
+    own:
+      x: -0.5
+      y: -0.4
+  swot:
+    strengths:
+    - 翻轉即啟動，免按鍵設定
+    - 六面各存一組常用時間
+    - USB-C 充電，一年保固
+    weaknesses:
+    - 六面時間出廠固定，不可自訂
+    - 無 App，無法回顧使用紀錄
+    - 售價為機械式同類 3-5 倍
+    opportunities:
+    - 「深度工作」「番茄鐘」搜尋熱度持續成長
+    - 混合辦公普及，桌面自律小物需求增加
+    - 正念冥想族群需要非螢幕提示載具
+    threats:
+    - 手機內建計時器與免費 App 直接替代
+    - 電商平台低價六面計時器加入戰局
+    - 國際計時品牌持續在台擴張教育通路
+  personas:
+  - name: 深度工作者 阿哲
+    title: 軟體工程師，接案／遠距工作為主
+    person: 阿哲，29歲
+    narrative: '阿哲大多時間在家或咖啡廳接案，靠自己排程沒有主管盯進度。
+
+      他習慣用番茄鐘拆解任務，但手機計時常被通知打斷，反而更難進入狀態。
+
+      '
+    background:
+    - label: 性別
+      value: 男
+    - label: 年紀
+      value: 28-32
+    - label: 居住地
+      value: 台北
+    - label: 家庭狀況
+      value: 未婚，獨居
+    - label: 教育程度
+      value: 大學畢業（資訊工程）
+    consumer:
+    - label: 興趣
+      value: 程式開發、機械鍵盤、咖啡沖煮、健身
+    - label: 目標
+      value: 遠距工作時維持專注時段，避免被手機打斷思路
+    - label: 痛點
+      value: 用手機計時會跳通知，一分心就很難再接回原本的思路
+    - label: 使用社群
+      value: Threads、YouTube、Reddit
+  - name: 備考衝刺生 小昕
+    title: 大學應屆考生／國考準備生
+    person: 小昕，22歲
+    narrative: '小昕大部分時間在圖書館自習室讀書，一天要輪流讀好幾個科目。
+
+      拿手機計時容易被誤會在滑手機，她需要一個安靜、不用重設的方式切換讀書段落。
+
+      '
+    background:
+    - label: 性別
+      value: 女
+    - label: 年紀
+      value: 20-24
+    - label: 居住地
+      value: 台中
+    - label: 家庭狀況
+      value: 與家人同住
+    - label: 教育程度
+      value: 大學在學
+    consumer:
+    - label: 興趣
+      value: 讀書會、線上課程、文具收集、限時動態
+    - label: 目標
+      value: 用六面對應不同科目，切換讀書段落不必重新設定
+    - label: 痛點
+      value: 圖書館不能明著用手機計時，怕被當成在滑手機
+    - label: 使用社群
+      value: Instagram、Dcard、小紅書
+  - name: 生活儀式感愛好者 Emily
+    title: 行銷企劃，重視居家佈置
+    person: Emily，34歲
+    narrative: 'Emily 睡前習慣留一段安靜時間冥想或閱讀，不想被手機螢幕的光線打斷情緒。
+
+      她願意為一件外型好看、放在桌上不突兀的小物多付一點錢。
+
+      '
+    background:
+    - label: 性別
+      value: 女
+    - label: 年紀
+      value: 30-38
+    - label: 居住地
+      value: 台北
+    - label: 家庭狀況
+      value: 已婚，育有一子
+    - label: 教育程度
+      value: 碩士畢業
+    consumer:
+    - label: 興趣
+      value: 居家佈置、冥想、閱讀、香氛
+    - label: 目標
+      value: 睡前用靜音震動提示做一段冥想或閱讀，不被鈴聲打擾
+    - label: 痛點
+      value: 一般鬧鐘聲音太吵，手機螢幕光線會影響睡前情緒
+    - label: 使用社群
+      value: Instagram、Pinterest、LINE
+  communication_axes:
+  - 專注節奏
+  - 極簡儀式感
+  - 零打擾
+  pitches:
+  - headline: 翻面，就開始衝刺
+    product_name: ADAM FRIENDS 六面番茄鐘
+    subtitle: 免設定，翻面即開始的深度工作夥伴
+    concept: '不需要打開手機、不需要點開 App，翻到想要的那一面，倒數就開始跑。
+
+      六面時間對應日常最常用的專注區段，適合番茄鐘式的短衝刺工作法。
+
+      比起功能疊加，這裡只解決一件事：讓開始工作這個動作，不再需要多想一步。
+
+      '
+  - headline: 桌上的安靜儀式感
+    product_name: ADAM FRIENDS 極簡計時方塊
+    subtitle: USB-C 充電、靜音震動，桌面上的一顆呼吸感
+    concept: '米白、岩灰、燕麥棕、霧霾藍，四款低彩度色，放進任何一張桌面都不突兀。
+
+      充電線收起來後，桌上只留一顆安靜的方塊。
+
+      它先是一件想擺在桌上的物件，然後才是一顆計時器。
+
+      '
+  - headline: 六個面，六種日常
+    product_name: ADAM FRIENDS 多情境計時器
+    subtitle: 讀書、健身、冥想，翻到哪一面就切換哪個模式
+    concept: '讀書切一段、健身切一段、睡前冥想再切一段，六個面各自記得不同情境的時間，不必每次重新設定。
+
+      三種提示模式讓它在圖書館、健身房、臥室都能安靜地待著。
+
+      一顆方塊，跟著一天裡不同的自己走。
+
+      '
+  brand_refs:
+  - MUJI 無印良品
+  - Teenage Engineering
+  - Nendo
+  - Native Union
+  labels:
+    sections:
+      spec: 產品規格
+      matrix: 定位矩陣
+      swot: 優勢與挑戰
+      audience: 受眾輪廓
+      persona: 人物誌
+      comms: 市場溝通主軸
+      pitch: 產品切角
+      pitch_recap: 產品切角 · Recap
+    persona_page:
+      background: 背景資訊
+      consumer: 消費行為
+    pitch_page:
+      prefix: 提案
+      concept_label: CONCEPT
+      recap_head:
+      - 提案
+      - 主標語
+      - 副標
+    swot_quadrants:
+    - key: strengths
+      zh: 優勢
+      en: Strengths
+    - key: weaknesses
+      zh: 劣勢
+      en: Weaknesses
+    - key: opportunities
+      zh: 機會
+      en: Opportunities
+    - key: threats
+      zh: 威脅
+      en: Threats
+    placeholders:
+      product: 產品名稱
+      price: 售價
+      price_positioning: 價格定位
+      features: 賣點關鍵字
+      axis: 軸標籤
+      axis_tag: 軸名
+      quadrant: 特徵描述
+      swot_item: 條目
+      persona_name: 名稱
+      persona_narrative: 生活型態描述
+      persona_title: 職稱
+      persona_person: 姓名
+      persona_story: 3–4 句生活敘述
+      comms_axis: 核心概念
+      pitch_headline: 主標語
+      pitch_product: 產品命名
+      pitch_subtitle: 副標
+      pitch_concept: 概念介紹 3–4 句
+      recap_headline: 主標
+      recap_subtitle: 副標
+    spec_page:
+      price_title: MSRP / 建議售價
+      features_lead: '{n} 大特色勝出'
+      colors_lead: '{n} 種顏色'
+part2:
+  chapter:
+    index: 2
+    zh: 設計風格提案
+    en: STYLE PROPOSAL
+  nav_sections:
+  - Mood Board
+  - 色彩故事
+  - 排版方案
+  brand:
+    philosophy:
+      steps:
+      - 翻轉
+      - 專注
+      - 儀式
+      - 日常
+      tagline_en: Flip. Focus. Repeat.
+      tagline_zh: 翻過去，就開始；用完，回到日常。
+    naming:
+      name: ADAM FRIENDS 六面計時器
+      formula: ADAM（工程師的理性）＋ FRIENDS（六個面像六個陪伴角色）＝ 陪你切換每個時段的桌上朋友
+      metaphors:
+      - 六個面像六個朋友，各自記得你在那個時段該做的事
+      - 翻轉不是操作，是跟朋友打個招呼、換一個場景
+      - 不追求功能疊加，只做好陪伴這一件事
+      slogan_zh: 翻過去，就開始。
+      slogan_en: Flip it. Start it.
+    identity:
+      logotype: 六面體線稿商標，翻轉軌跡以極簡線條表現，呼應「翻轉即啟動」的核心動作
+      identity: 低彩度四色（米白／岩灰／燕麥棕／霧霾藍）搭配霧面材質，識別語彙落在「安靜的桌面物件」而非「3C 產品」
+      system: 圖標、包裝、官網統一使用同一組翻轉角度與圓角比例，讓六面計時器在任何通路都一眼可辨
+      design_vocabulary: 霧面質地、45 度翻轉軸線、圓角矩形、低飽和四色階
+    tagline: 翻過去，就開始。
+  mood_boards:
+  - code: A
+    name: 沉浸衝刺
+    concept: 深色木紋桌面、單一暖光源，畫面只留計時器與雙手，呼應番茄鐘式的短衝刺工作法
+    keywords:
+    - 專注
+    - 暖光
+    - 極簡
+    linked_pitch: 0
+    photo_style: 逆光剪影搭配單一暖色主光，景深壓縮到桌面與計時器，背景大幅虛化
+    layout_style: 文案靠左下角落地，大量留白給桌面環境，資訊密度低、呼吸感優先
+  - code: B
+    name: 安靜物件
+    concept: 米白背景、自然光、計時器單獨陳列，強調材質觸感與四色並置的物件美感
+    keywords:
+    - 質感
+    - 留白
+    - 陳列
+    linked_pitch: 1
+    photo_style: 平拍與 45 度側拍交替，柔和自然光，刻意保留陰影表現霧面材質
+    layout_style: 置中構圖、對稱留白，文案採用細字重、大量負空間
+  - code: C
+    name: 情境切換
+    concept: 三個場景（書桌、健身墊、床頭）並列，展示同一顆計時器在一天裡的六種切換
+    keywords:
+    - 日常
+    - 多情境
+    - 切換
+    linked_pitch: 2
+    photo_style: 三宮格式跨場景並列，每格光線與色溫依場景調整，維持計時器本身色彩一致
+    layout_style: 網格式分區排版，每個場景配一小段情境文字，資訊密度中等
+  color_index_lead: 四種顏色，四段一天裡會被重複播放的時刻。
+  layout_options:
+  - code: A
+    note: 主標語置頂、產品置中偏下，適合單品陳列型視覺
+    whitespace_ratio: 上緣留白 22%
+  - code: B
+    note: 文案靠左三分之一，右側留給產品與情境，適合情境敘事型視覺
+    whitespace_ratio: 右緣留白 18%
+  - code: C
+    note: 文案與色點並排在底部，產品置中偏上，適合強調四色一次到位
+    whitespace_ratio: 下緣留白 20%
+  labels:
+    sections:
+      brand: 品牌識別
+      mood_board: Mood Board
+      mood_board_recap: Mood Board · Recap
+      color_index: 色彩故事索引
+      color_story: 色彩情緒
+      layout_options: 排版方案比較
+    brand_page:
+      philosophy_title: 品牌理念
+      naming_title: 命名故事
+      identity_title: 識別系統
+      logotype_label: LOGOTYPE
+      identity_label: IDENTITY
+      system_label: SYSTEM
+      vocabulary_label: 設計語彙
+    mood_board_page:
+      concept_label: CONCEPT
+      keywords_label: KEYWORDS
+      linked_pitch_label: 回連提案
+      photo_style_title: 情境氛圍照
+      layout_style_title: 資訊排版風格
+      recap_head:
+      - 代號
+      - 名稱
+      - CONCEPT
+      - 回連提案
+    color_story_page:
+      mood_label: MOOD
+      playlist_label: PLAYLIST
+      moment_label: MOMENT
+    layout_options_page:
+      whitespace_label: 留白比例
+      disclaimer: 範圍為示意，實拍會拍廣後裁切，不需精確對位。
+    placeholders:
+      brand_step: 階段名稱
+      brand_tagline_en: 英文標語
+      brand_tagline_zh: 中文標語
+      brand_name: 品牌命名
+      brand_formula: 命名公式
+      brand_metaphor: 隱喻段落
+      brand_slogan_en: 英文 Slogan
+      brand_slogan_zh: 中文 Slogan
+      brand_tier: 層級描述
+      brand_vocabulary: 設計語彙描述
+      brand_tagline_main: 主標語
+      mb_code: 方案代號
+      mb_name: 方案名稱
+      mb_concept: 一句話概念
+      mb_keyword: 關鍵字
+      mb_linked_pitch: 回連提案
+      mb_photo_style: 攝影風格說明
+      mb_layout_style: 排版調性說明
+      color_index_lead: 色彩故事總綱
+      color_name: 色名
+      color_hex: 色號
+      color_story_title: 故事標題
+      color_mood: 情緒描述
+      color_playlist: 歌單詞彙
+      color_moment: 時刻描述
+      color_closing_tag: 收尾標籤
+      lo_code: 方案代號
+      lo_note: 一句話說明
+      lo_whitespace: 留白比例

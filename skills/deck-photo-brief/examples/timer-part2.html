@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<title>設計風格提案</title>
+<style>
+:root{--page:#f5f5f3;--card:#fff;--fg:#262626;--fg2:#6b6b6b;--accent:#d97d35;
+--dark:#262626;--dark2:#c9c6be;--dark3:#9b978e;--imgnum:#888;--border:#e3e1dc;
+--z1:#fff;--z2:#fbfaf8;--z3:#efede8;
+--fd:Cambria,"Songti TC","Noto Serif TC",serif;
+--fb:Calibri,"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--dark);font-family:var(--fb);color:var(--fg);padding:18pt 0}
+.slide{position:relative;width:960pt;height:540pt;background:var(--page);
+overflow:hidden;margin:0 auto 18pt;box-shadow:0 2pt 12pt rgba(0,0,0,.4)}
+.bar{position:absolute;left:0;top:0;width:37.6pt;height:100%;background:var(--dark)}
+.rule{position:absolute;left:0;top:48.27pt;width:100%;height:.75pt;background:var(--dark)}
+.crumb{position:absolute;left:53.6pt;top:13.2pt;font-size:11pt;color:var(--fg2)}
+.nv{position:absolute;top:13.2pt;width:111.6pt;text-align:center;font-size:10pt;color:var(--border)}
+.nv.on{color:var(--fg);font-weight:600}
+.nvsep{position:absolute;top:13.2pt;width:.75pt;height:17pt;background:var(--border)}
+.ttl{position:absolute;font-size:19pt;font-weight:600;letter-spacing:.02em}
+.pgn{position:absolute;font-size:8pt;color:var(--imgnum)}
+.body{position:absolute;left:69.6pt;top:128pt;right:69.6pt;bottom:53.33pt}
+.bk{display:inline-block;min-width:52pt;padding:2pt 8pt;border:.75pt dashed var(--border);
+border-radius:3pt;background:var(--z2);color:var(--fg2);font-size:8.5pt;line-height:1.5}
+.vl2{display:block;font-size:9.5pt;line-height:1.7;color:var(--fg2)}
+.vl2::before{content:"• ";color:var(--accent)}
+.sep{background:var(--dark);color:#fff}
+.sep .bignum{position:absolute;left:696pt;top:-55.2pt;font-family:var(--fb);
+font-weight:700;font-size:373.33pt;line-height:1;color:#fff}
+.sep .chname{position:absolute;left:38.27pt;top:83.87pt}
+.sep .zh{font-size:29pt;font-weight:600;letter-spacing:.08em}
+.sep .en{font-size:29pt;font-weight:700;margin-top:6pt}
+.sep .toc{position:absolute;left:38.27pt;top:300pt;list-style:none;width:253.47pt}
+.sep .toc li{display:flex;justify-content:space-between;align-items:baseline;
+height:36.93pt;border-bottom:.75pt solid rgba(255,255,255,.55);font-size:11pt}
+.sep .toc em{font-style:normal;color:var(--accent)}
+/* 2.1 Brand Identity */
+.brandpage{position:relative;width:100%;height:100%;display:flex;flex-direction:column;
+align-items:center;justify-content:center;text-align:center;gap:26pt}
+.chain{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:12pt;max-width:100%}
+.cbox{border:.75pt solid var(--border);border-radius:4pt;padding:14pt 20pt;min-width:110pt;
+background:var(--z1)}
+.cbox .cn{display:block;font-size:9pt;color:var(--accent);margin-bottom:6pt}
+.cbox b{font-size:15pt;font-weight:600}
+.carrow{font-size:16pt;color:var(--border)}
+.bp-tagline{display:flex;flex-direction:column;gap:6pt}
+.bp-tagline i{font-style:normal;font-family:var(--fd);font-size:14pt;color:var(--fg2)}
+.bp-tagline b{font-size:20pt;font-weight:700}
+.namehead{display:flex;flex-direction:column;gap:8pt}
+.namehead b{font-size:26pt;font-weight:700}
+.namehead span{font-size:12pt;color:var(--fg2)}
+.metaphors{display:flex;flex-direction:column;gap:4pt;text-align:left;max-width:520pt}
+.bp-slogan{display:flex;flex-direction:column;gap:6pt}
+.bp-slogan i{font-style:normal;font-family:var(--fd);font-size:13pt;color:var(--fg2)}
+.bp-slogan b{font-size:18pt;font-weight:700;color:var(--accent)}
+.tiers{display:flex;gap:18pt;width:100%;justify-content:center}
+.tier{flex:1;max-width:220pt;border:.75pt solid var(--border);border-radius:4pt;padding:16pt;
+background:var(--z1);text-align:left}
+.tier .tn{display:block;font-size:11pt;font-weight:700;color:var(--accent);margin-bottom:8pt;
+letter-spacing:.1em}
+.tier p{font-size:10pt;color:var(--fg2);line-height:1.6}
+.vocab{display:flex;gap:10pt;align-items:baseline;justify-content:center}
+.vocab label{font-size:9pt;color:var(--fg2);letter-spacing:.15em}
+.vocab span{font-size:11pt}
+.bp-main-tagline{font-family:var(--fd);font-size:16pt;color:var(--fg)}
+/* 2.2 Mood Board */
+.mbvisual{display:flex;gap:26pt;height:100%}
+.mbl{flex:1;display:flex;flex-direction:column;justify-content:center;gap:11pt;align-items:flex-start}
+.mbpill{background:var(--accent);color:#fff;font-size:9pt;padding:3pt 11pt;border-radius:9pt}
+.mbname{font-size:20pt;font-weight:600}
+.mbsec{margin-top:4pt}
+.mbsec.top{margin-top:0}
+.mbsec label{display:block;font-size:8pt;letter-spacing:.2em;color:var(--fg2);margin-bottom:5pt}
+.mbkw{display:flex;flex-wrap:wrap;gap:8pt 14pt}
+.mbimg{flex:0 0 auto;height:100%;background:var(--border);aspect-ratio:3/4}
+.mbphotos,.mblayout{width:100%;height:100%;display:flex;flex-direction:column;gap:18pt}
+.mbphotorow{display:flex;gap:10pt;align-items:center;justify-content:flex-start}
+.mbph{height:100%;aspect-ratio:4/5;background:var(--border);flex:0 0 auto}
+.mblayoutrow{display:flex;gap:14pt;align-items:center;justify-content:flex-start}
+.mblo{height:100%;aspect-ratio:3/2;background:var(--border);flex:0 0 auto}
+.recap{width:100%;border-collapse:collapse;font-size:10pt}
+.recap th{background:var(--z3);padding:8pt 11pt;text-align:left;font-weight:600}
+.recap td{padding:9pt 11pt;border-bottom:.5pt solid var(--border)}
+/* 2.3 Color Story Index */
+.cilead{font-size:14pt;font-weight:600;text-align:center;margin-bottom:20pt}
+.cigrid{display:flex;flex-wrap:wrap;gap:16pt;justify-content:center}
+.cicard{width:110pt;text-align:center}
+.ciimg{width:100%;aspect-ratio:3/4;background:var(--border);margin-bottom:8pt}
+.cicard i{display:inline-block;width:12pt;height:12pt;border-radius:50%;
+border:.5pt solid var(--border);vertical-align:middle;margin-right:5pt}
+.cicard span{font-size:9.5pt;color:var(--fg2)}
+/* 2.4 Color Emotion Page */
+.cspage{display:flex;gap:24pt;height:100%}
+.cshero{flex:0 0 auto;height:100%;aspect-ratio:3/4;background:var(--border)}
+.csbar{flex:1;display:flex;flex-direction:column;gap:10pt;justify-content:center;min-width:0}
+.cshead{display:flex;align-items:center;gap:8pt;font-size:10pt;color:var(--fg2)}
+.cshead i{display:inline-block;width:14pt;height:14pt;border-radius:50%;border:.5pt solid var(--border)}
+.cshead b{font-weight:700;color:var(--fg)}
+.csttl{font-family:var(--fd);font-size:17pt;font-weight:600;line-height:1.4}
+.csrow{display:flex;gap:10pt;align-items:baseline}
+.csrow label{flex:0 0 70pt;font-size:8pt;letter-spacing:.15em;color:var(--fg2)}
+.csvals{display:flex;flex-wrap:wrap;gap:4pt 12pt}
+.csvals .vl2{display:inline-block}
+.cstag{margin-top:4pt;font-size:10pt;color:var(--accent);border-top:.75pt solid var(--border);
+padding-top:10pt}
+.csphotos{display:flex;gap:10pt;margin-top:6pt;height:64pt}
+.csph{height:100%;aspect-ratio:1/1;background:var(--border);flex:0 0 auto}
+/* 2.5 Layout Options Comparison */
+.lorow{display:flex;gap:20pt;align-items:flex-start;justify-content:flex-start}
+.locard{flex:0 0 auto;display:flex;flex-direction:column;gap:9pt}
+.lomock{position:relative;background:var(--border)}
+.lozone{position:absolute;left:10%;top:60%;right:10%;bottom:12%;
+border:1pt dashed var(--dark3);background:rgba(155,151,142,.12)}
+.lometa{display:flex;flex-direction:column;gap:4pt}
+.lometa b{font-size:12pt;color:var(--accent)}
+.lometa span{font-size:9.5pt;color:var(--fg2)}
+.lometa i{font-style:normal;font-size:8.5pt;color:var(--fg2)}
+.lonote{position:absolute;left:0;bottom:0;font-size:8pt;color:var(--fg2)}
+</style>
+</head>
+<body>
+<section class="slide sep"><div class="bignum">2</div><div class="chname"><div class="zh">設計風格提案</div><div class="en">STYLE PROPOSAL</div></div><ul class="toc"><li><span>品牌識別</span><em>02</em></li><li><span>Mood Board</span><em>05</em></li><li><span>Mood Board · Recap</span><em>14</em></li><li><span>色彩故事索引</span><em>15</em></li><li><span>排版方案比較</span><em>20</em></li></ul></section>
+<section class="slide"><div class="bar"></div><div class="rule"></div><div class="crumb">設計風格提案</div><div class="nv" style="left:619.33pt">Mood Board</div><div class="nv" style="left:726.93pt">色彩故事</div><div class="nv" style="left:836.53pt">排版方案</div><div class="nvsep" style="left:728.93pt"></div><div class="nvsep" style="left:838.53pt"></div><div class="ttl" style="left:69.6pt;top:69.47pt">品牌識別 － 品牌理念</div><div class="pgn" style="left:915.73pt;top:510.8pt">02</div><div class="body"><div class="brandpage"><div class="chain"><div class="cbox"><span class="cn">01</span><b>翻轉</b></div><div class="carrow">→</div><div class="cbox"><span class="cn">02</span><b>專注</b></div><div class="carrow">→</div><div class="cbox"><span class="cn">03</span><b>儀式</b></div><div class="carrow">→</div><div class="cbox"><span class="cn">04</span><b>日常</b></div></div><div class="bp-tagline"><i>Flip. Focus. Repeat.</i><b>翻過去，就開始；用完，回到日常。</b></div></div></div></section>
+<section class="slide"><div class="bar"></div><div class="rule"></div><div class="crumb">設計風格提案</div><div class="nv" style="left:619.33pt">Mood Board</div><div class="nv" style="left:726.93pt">色彩故事</div><div class="nv" style="left:836.53pt">排版方案</div><div class="nvsep" style="left:728.93pt"></div><div class="nvsep" style="left:838.53pt"></div><div class="ttl" style="left:69.6pt;top:69.47pt">品牌識別 － 命名故事</div><div class="pgn" style="left:915.73pt;top:510.8pt">03</div><div class="body"><div class="brandpage"><div class="namehead"><b>ADAM FRIENDS 六面計時器</b><span>ADAM（工程師的理性）＋ FRIENDS（六個面像六個陪伴角色）＝ 陪你切換每個時段的桌上朋友</span></div><div class="metaphors"><span class="vl2">六個面像六個朋友，各自記得你在那個時段該做的事</span><span class="vl2">翻轉不是操作，是跟朋友打個招呼、換一個場景</span><span class="vl2">不追求功能疊加，只做好陪伴這一件事</span></div><div class="bp-slogan"><i>Flip it. Start it.</i><b>翻過去，就開始。</b></div></div></div></section>
+<section class="slide"><div class="bar"></div><div class="rule"></div><div class="crumb">設計風格提案</div><div class="nv" style="left:619.33pt">Mood Board</div><div class="nv" style="left:726.93pt">色彩故事</div><div class="nv" style="left:836.53pt">排版方案</div><div class="nvsep" style="left:728.93pt"></div><div class="nvsep" style="left:838.53pt"></div><div class="ttl" style="left:69.6pt;top:69.47pt">品牌識別 － 識別系統</div><div class="pgn" style="left:915.73pt;top:510.8pt">04</div><div class="body"><div class="brandpage"><div class="tiers"><div class="tier"><span class="tn">LOGOTYPE</span><p>六面體線稿商標，翻轉軌跡以極簡線條表現，呼應「翻轉即啟動」的核心動作</p></div><div class="tier"><span class="tn">IDENTITY</span><p>低彩度四色（米白／岩灰／燕麥棕／霧霾藍）搭配霧面材質，識別語彙落在「安靜的桌面物件」而非「3C 產品」</p></div><div class="tier"><span class="tn">SYSTEM</span><p>圖標、包裝、官網統一使用同一組翻轉角度與圓角比例，讓六面計時器在任何通路都一眼可辨</p></div></div><div class="vocab"><label>設計語彙</label><span>霧面質地、45 度翻轉軸線、圓角矩形、低飽和四色階</span></div><div class="bp-main-tagline">翻過去，就開始。</div></div></div></section>
+<section class="slide"><div class="bar"></div><div class="rule"></div><div class="crumb">設計風格提案</div><div class="nv on" style="left:619.33pt">Mood Board</div><div class="nv" style="left:726.93pt">色彩故事</div><div class="nv" style="left:836.53pt">排版方案</div><div class="nvsep" style="left:728.93pt"></div><div class="nvsep" style="left:838.53pt"></div><div class="ttl" style="left:69.6pt;top:69.47pt">Mood Board 01</div><div class="pgn" style="left:915.73pt;top:510.8pt">05</div><div class="body"><div class="mbvisual"><div class="mbl"><div class="mbpill">A</div><div class="mbname">沉浸衝刺</div><div class="mbsec"><label>CONCEPT</label><span>深色木紋桌面、單一暖光源，畫面只留計時器與雙手，呼應番茄鐘式的短衝刺工作法</span></div><div class="mbsec"><label>KEYWORDS</label><div class="mbkw"><span class="vl2">專注</span><span class="vl2">暖光</span><span class="vl2">極簡</span></div></div><div class="mbsec"><label>回連提案</label><span>提案 01｜翻面，就開始衝刺</span></div></div><div class="mbimg"></div></div></div></section>
+<section class="slide"><div class="bar"></div><div class="rule"></div><div class="crumb">設計風格提案</div><div class="nv on" style="left:619.33pt">Mood Board</div><div class="nv" style="left:726.93pt">色彩故事</div><div class="nv" style="left:836.53pt">排版方案</div><div class="nvsep" style="left:728.93pt"></div><div class="nvsep" style="left:838.53pt"></div><div class="ttl" style="left:69.6pt;top:69.47pt">Mood Board 01 － 情境氛圍照</div><div class="pgn" style="left:915.73pt;top:510.8pt">06</div><div class="body"><div class="mbphotos"><div class="mbsec top"><label>情境氛圍照</label><span>逆光剪影搭配單一暖色主光，景深壓縮到桌面與計時器，背景大幅虛化</span></div><div class="mbphotorow" style="height:195.2pt"><div class="mbph"></div><div class="mbph"></div><div class="mbph"></div><div class="mbph"></div><div class="mbph"></div></div></div></div></section>
+<section class="slide"><div class="bar"></div><div class="rule"></div><div class="crumb">設計風格提案</div><div class="nv on" style="left:619.33pt">Mood Board</div><div class="nv" style="left:726.93pt">色彩故事</div><div class="nv" style="left:836.53pt">排版方案</div><div class="nvsep" style="left:728.93pt"></div><div class="nvsep" style="left:838.53pt"></div><div class="ttl" style="left:69.6pt;top:69.47pt">Mood Board 01 － 資訊排版風格</div><div class="pgn" style="left:915.73pt;top:510.8pt">07</div><div class="body"><div class="mblayout"><div class="mbsec top"><label>資訊排版風格</label><span>文案靠左下角落地，大量留白給桌面環境，資訊密度低、呼吸感優先</span></div><div class="mblayoutrow" style="height:176.18pt"><div class="mblo"></div><div class="mblo"></div><div class="mblo"></div></div></div></div></section>
+<section class="slide"><div class="bar"></div><div class="rule"></div><div class="crumb">設計風格提案</div><div class="nv on" style="left:619.33pt">Mood Board</div><div class="nv" style="left:726.93pt">色彩故事</div><div class="nv" style="left:836.53pt">排版方案</div><div class="nvsep" style="left:728.93pt"></div><div class="nvsep" style="left:838.53pt"></div><div class="ttl" style="left:69.6pt;top:69.47pt">Mood Board 02</div><div class="pgn" style="left:915.73pt;top:510.8pt">08</div><div class="body"><div class="mbvisual"><div class="mbl"><div class="mbpill">B</div><div class="mbname">安靜物件</div><div class="mbsec"><label>CONCEPT</label><span>米白背景、自然光、計時器單獨陳列，強調材質觸感與四色並置的物件美感</span></div><div class="mbsec"><label>KEYWORDS</label><div class="mbkw"><span class="vl2">質感</span><span class="vl2">留白</span><span class="vl2">陳列</span></div></div><div class="mbsec"><label>回連提案</label><span>提案 02｜桌上的安靜儀式感</span></div></div><div class="mbimg"></div></div></div></section>
+<section class="slide"><div class="bar"></div><div class="rule"></div><div class="crumb">設計風格提案</div><div class="nv on" style="left:619.33pt">Mood Board</div><div class="nv" style="left:726.93pt">色彩故事</div><div class="nv" style="left:836.53pt">排版方案</div><div class="nvsep" style="left:728.93pt"></div><div class="nvsep" style="left:838.53pt"></div><div class="ttl" style="left:69.6pt;top:69.47pt">Mood Board 02 － 情境氛圍照</div><div class="pgn" style="left:915.73pt;top:510.8pt">09</div><div class="body"><div class="mbphotos"><div class="mbsec top"><label>情境氛圍照</label><span>平拍與 45 度側拍交替，柔和自然光，刻意保留陰影表現霧面材質</span></div><div class="mbphotorow" style="height:195.2pt"><div class="mbph"></div><div class="mbph"></div><div class="mbph"></div><div class="mbph"></div><div class="mbph"></div></div></div></div></section>
+<section class="slide"><div class="bar"></div><div class="rule"></div><div class="crumb">設計風格提案</div><div class="nv on" style="left:619.33pt">Mood Board</div><div class="nv" style="left:726.93pt">色彩故事</div><div class="nv" style="left:836.53pt">排版方案</div><div class="nvsep" style="left:728.93pt"></div><div class="nvsep" style="left:838.53pt"></div><div class="ttl" style="left:69.6pt;top:69.47pt">Mood Board 02 － 資訊排版風格</div><div class="pgn" style="left:915.73pt;top:510.8pt">10</div><div class="body"><div class="mblayout"><div class="mbsec top"><label>資訊排版風格</label><span>置中構圖、對稱留白，文案採用細字重、大量負空間</span></div><div class="mblayoutrow" style="height:176.18pt"><div class="mblo"></div><div class="mblo"></div><div class="mblo"></div></div></div></div></section>
+<section class="slide"><div class="bar"></div><div class="rule"></div><div class="crumb">設計風格提案</div><div class="nv on" style="left:619.33pt">Mood Board</div><div class="nv" style="left:726.93pt">色彩故事</div><div class="nv" style="left:836.53pt">排版方案</div><div class="nvsep" style="left:728.93pt"></div><div class="nvsep" style="left:838.53pt"></div><div class="ttl" style="left:69.6pt;top:69.47pt">Mood Board 03</div><div class="pgn" style="left:915.73pt;top:510.8pt">11</div><div class="body"><div class="mbvisual"><div class="mbl"><div class="mbpill">C</div><div class="mbname">情境切換</div><div class="mbsec"><label>CONCEPT</label><span>三個場景（書桌、健身墊、床頭）並列，展示同一顆計時器在一天裡的六種切換</span></div><div class="mbsec"><label>KEYWORDS</label><div class="mbkw"><span class="vl2">日常</span><span class="vl2">多情境</span><span class="vl2">切換</span></div></div><div class="mbsec"><label>回連提案</label><span>提案 03｜六個面，六種日常</span></div></div><div class="mbimg"></div></div></div></section>
+<section class="slide"><div class="bar"></div><div class="rule"></div><div class="crumb">設計風格提案</div><div class="nv on" style="left:619.33pt">Mood Board</div><div class="nv" style="left:726.93pt">色彩故事</div><div class="nv" style="left:836.53pt">排版方案</div><div class="nvsep" style="left:728.93pt"></div><div class="nvsep" style="left:838.53pt"></div><div class="ttl" style="left:69.6pt;top:69.47pt">Mood Board 03 － 情境氛圍照</div><div class="pgn" style="left:915.73pt;top:510.8pt">12</div><div class="body"><div class="mbphotos"><div class="mbsec top"><label>情境氛圍照</label><span>三宮格式跨場景並列，每格光線與色溫依場景調整，維持計時器本身色彩一致</span></div><div class="mbphotorow" style="height:195.2pt"><div class="mbph"></div><div class="mbph"></div><div class="mbph"></div><div class="mbph"></div><div class="mbph"></div></div></div></div></section>
+<section class="slide"><div class="bar"></div><div class="rule"></div><div class="crumb">設計風格提案</div><div class="nv on" style="left:619.33pt">Mood Board</div><div class="nv" style="left:726.93pt">色彩故事</div><div class="nv" style="left:836.53pt">排版方案</div><div class="nvsep" style="left:728.93pt"></div><div class="nvsep" style="left:838.53pt"></div><div class="ttl" style="left:69.6pt;top:69.47pt">Mood Board 03 － 資訊排版風格</div><div class="pgn" style="left:915.73pt;top:510.8pt">13</div><div class="body"><div class="mblayout"><div class="mbsec top"><label>資訊排版風格</label><span>網格式分區排版，每個場景配一小段情境文字，資訊密度中等</span></div><div class="mblayoutrow" style="height:176.18pt"><div class="mblo"></div><div class="mblo"></div><div class="mblo"></div></div></div></div></section>
+<section class="slide"><div class="bar"></div><div class="rule"></div><div class="crumb">設計風格提案</div><div class="nv on" style="left:619.33pt">Mood Board</div><div class="nv" style="left:726.93pt">色彩故事</div><div class="nv" style="left:836.53pt">排版方案</div><div class="nvsep" style="left:728.93pt"></div><div class="nvsep" style="left:838.53pt"></div><div class="ttl" style="left:69.6pt;top:69.47pt">Mood Board · Recap</div><div class="pgn" style="left:915.73pt;top:510.8pt">14</div><div class="body"><table class="recap"><tr><th>代號</th><th>名稱</th><th>CONCEPT</th><th>回連提案</th></tr><tr><td>A</td><td>沉浸衝刺</td><td>深色木紋桌面、單一暖光源，畫面只留計時器與雙手，呼應番茄鐘式的短衝刺工作法</td><td>提案 01｜翻面，就開始衝刺</td></tr><tr><td>B</td><td>安靜物件</td><td>米白背景、自然光、計時器單獨陳列，強調材質觸感與四色並置的物件美感</td><td>提案 02｜桌上的安靜儀式感</td></tr><tr><td>C</td><td>情境切換</td><td>三個場景（書桌、健身墊、床頭）並列，展示同一顆計時器在一天裡的六種切換</td><td>提案 03｜六個面，六種日常</td></tr></table></div></section>
+<section class="slide"><div class="bar"></div><div class="rule"></div><div class="crumb">設計風格提案</div><div class="nv" style="left:619.33pt">Mood Board</div><div class="nv on" style="left:726.93pt">色彩故事</div><div class="nv" style="left:836.53pt">排版方案</div><div class="nvsep" style="left:728.93pt"></div><div class="nvsep" style="left:838.53pt"></div><div class="ttl" style="left:69.6pt;top:69.47pt">色彩故事索引</div><div class="pgn" style="left:915.73pt;top:510.8pt">15</div><div class="body"><div class="cilead">四種顏色，四段一天裡會被重複播放的時刻。</div><div class="cigrid"><div class="cicard"><div class="ciimg"></div><i style="background:#F2EDE4"></i><span>米白</span></div><div class="cicard"><div class="ciimg"></div><i style="background:#86847E"></i><span>岩灰</span></div><div class="cicard"><div class="ciimg"></div><i style="background:#B8987A"></i><span>燕麥棕</span></div><div class="cicard"><div class="ciimg"></div><i style="background:#7C93A3"></i><span>霧霾藍</span></div></div></div></section>
+<section class="slide"><div class="bar"></div><div class="rule"></div><div class="crumb">設計風格提案</div><div class="nv" style="left:619.33pt">Mood Board</div><div class="nv on" style="left:726.93pt">色彩故事</div><div class="nv" style="left:836.53pt">排版方案</div><div class="nvsep" style="left:728.93pt"></div><div class="nvsep" style="left:838.53pt"></div><div class="ttl" style="left:69.6pt;top:69.47pt">色彩情緒 － 米白</div><div class="pgn" style="left:915.73pt;top:510.8pt">16</div><div class="body"><div class="cspage"><div class="cshero"></div><div class="csbar"><div class="cshead"><i style="background:#F2EDE4"></i><b>#F2EDE4</b><span>米白</span></div><div class="csttl">Clean Start｜清空重來</div><div class="csrow"><label>MOOD</label><div class="csvals"><span class="vl2">FRESH 清爽</span><span class="vl2">LIGHT 輕盈</span><span class="vl2">OPEN 開闊</span></div></div><div class="csrow"><label>PLAYLIST</label><div class="csvals"><span class="vl2">ACOUSTIC 原聲</span><span class="vl2">MORNING JAZZ 晨間爵士</span><span class="vl2">PIANO 鋼琴</span></div></div><div class="csrow"><label>MOMENT</label><div class="csvals"><span class="vl2">Morning 早晨</span><span class="vl2">Desk 書桌</span><span class="vl2">First Task 第一件事</span></div></div><div class="cstag">FLIP × FOCUS × FINISH｜翻轉 × 專注 × 完成</div><div class="csphotos"><div class="csph"></div><div class="csph"></div></div></div></div></div></section>
+<section class="slide"><div class="bar"></div><div class="rule"></div><div class="crumb">設計風格提案</div><div class="nv" style="left:619.33pt">Mood Board</div><div class="nv on" style="left:726.93pt">色彩故事</div><div class="nv" style="left:836.53pt">排版方案</div><div class="nvsep" style="left:728.93pt"></div><div class="nvsep" style="left:838.53pt"></div><div class="ttl" style="left:69.6pt;top:69.47pt">色彩情緒 － 岩灰</div><div class="pgn" style="left:915.73pt;top:510.8pt">17</div><div class="body"><div class="cspage"><div class="cshero"></div><div class="csbar"><div class="cshead"><i style="background:#86847E"></i><b>#86847E</b><span>岩灰</span></div><div class="csttl">Deep Focus｜深度專注</div><div class="csrow"><label>MOOD</label><div class="csvals"><span class="vl2">CALM 沉靜</span><span class="vl2">STEADY 穩定</span><span class="vl2">QUIET 安靜</span></div></div><div class="csrow"><label>PLAYLIST</label><div class="csvals"><span class="vl2">LO-FI</span><span class="vl2">AMBIENT 氛圍音樂</span><span class="vl2">INSTRUMENTAL 純音樂</span></div></div><div class="csrow"><label>MOMENT</label><div class="csvals"><span class="vl2">Afternoon 午後</span><span class="vl2">Long Session 長時段</span><span class="vl2">Study 讀書</span></div></div><div class="cstag">FLIP × FOCUS × FINISH｜翻轉 × 專注 × 完成</div><div class="csphotos"><div class="csph"></div><div class="csph"></div></div></div></div></div></section>
+<section class="slide"><div class="bar"></div><div class="rule"></div><div class="crumb">設計風格提案</div><div class="nv" style="left:619.33pt">Mood Board</div><div class="nv on" style="left:726.93pt">色彩故事</div><div class="nv" style="left:836.53pt">排版方案</div><div class="nvsep" style="left:728.93pt"></div><div class="nvsep" style="left:838.53pt"></div><div class="ttl" style="left:69.6pt;top:69.47pt">色彩情緒 － 燕麥棕</div><div class="pgn" style="left:915.73pt;top:510.8pt">18</div><div class="body"><div class="cspage"><div class="cshero"></div><div class="csbar"><div class="cshead"><i style="background:#B8987A"></i><b>#B8987A</b><span>燕麥棕</span></div><div class="csttl">Warm Pause｜溫柔暫停</div><div class="csrow"><label>MOOD</label><div class="csvals"><span class="vl2">WARM 溫暖</span><span class="vl2">SOFT 柔和</span><span class="vl2">COZY 舒適</span></div></div><div class="csrow"><label>PLAYLIST</label><div class="csvals"><span class="vl2">BOSSA NOVA</span><span class="vl2">COFFEE HOUSE 咖啡館</span><span class="vl2">FOLK 民謠</span></div></div><div class="csrow"><label>MOMENT</label><div class="csvals"><span class="vl2">Break 休息</span><span class="vl2">Tea Time 茶歇</span><span class="vl2">Reading 閱讀</span></div></div><div class="cstag">FLIP × FOCUS × FINISH｜翻轉 × 專注 × 完成</div><div class="csphotos"><div class="csph"></div><div class="csph"></div></div></div></div></div></section>
+<section class="slide"><div class="bar"></div><div class="rule"></div><div class="crumb">設計風格提案</div><div class="nv" style="left:619.33pt">Mood Board</div><div class="nv on" style="left:726.93pt">色彩故事</div><div class="nv" style="left:836.53pt">排版方案</div><div class="nvsep" style="left:728.93pt"></div><div class="nvsep" style="left:838.53pt"></div><div class="ttl" style="left:69.6pt;top:69.47pt">色彩情緒 － 霧霾藍</div><div class="pgn" style="left:915.73pt;top:510.8pt">19</div><div class="body"><div class="cspage"><div class="cshero"></div><div class="csbar"><div class="cshead"><i style="background:#7C93A3"></i><b>#7C93A3</b><span>霧霾藍</span></div><div class="csttl">Night Rhythm｜夜的節奏</div><div class="csrow"><label>MOOD</label><div class="csvals"><span class="vl2">COOL 冷靜</span><span class="vl2">DEEP 深沉</span><span class="vl2">FREE 自由</span></div></div><div class="csrow"><label>PLAYLIST</label><div class="csvals"><span class="vl2">SYNTH 合成器</span><span class="vl2">DOWNTEMPO 慢節奏</span><span class="vl2">NIGHT DRIVE 夜間駕駛</span></div></div><div class="csrow"><label>MOMENT</label><div class="csvals"><span class="vl2">Night 夜晚</span><span class="vl2">Workout 健身</span><span class="vl2">Wind Down 放鬆</span></div></div><div class="cstag">FLIP × FOCUS × FINISH｜翻轉 × 專注 × 完成</div><div class="csphotos"><div class="csph"></div><div class="csph"></div></div></div></div></div></section>
+<section class="slide"><div class="bar"></div><div class="rule"></div><div class="crumb">設計風格提案</div><div class="nv" style="left:619.33pt">Mood Board</div><div class="nv" style="left:726.93pt">色彩故事</div><div class="nv on" style="left:836.53pt">排版方案</div><div class="nvsep" style="left:728.93pt"></div><div class="nvsep" style="left:838.53pt"></div><div class="ttl" style="left:69.6pt;top:69.47pt">排版方案比較</div><div class="pgn" style="left:915.73pt;top:510.8pt">20</div><div class="body"><div class="lorow"><div class="locard"><div class="lomock" style="width:222.13pt;height:277.67pt"><div class="lozone"></div></div><div class="lometa"><b>A</b><span>主標語置頂、產品置中偏下，適合單品陳列型視覺</span><i>留白比例：上緣留白 22%</i></div></div><div class="locard"><div class="lomock" style="width:222.13pt;height:277.67pt"><div class="lozone"></div></div><div class="lometa"><b>B</b><span>文案靠左三分之一，右側留給產品與情境，適合情境敘事型視覺</span><i>留白比例：右緣留白 18%</i></div></div><div class="locard"><div class="lomock" style="width:222.13pt;height:277.67pt"><div class="lozone"></div></div><div class="lometa"><b>C</b><span>文案與色點並排在底部，產品置中偏上，適合強調四色一次到位</span><i>留白比例：下緣留白 20%</i></div></div></div><div class="lonote">範圍為示意，實拍會拍廣後裁切，不需精確對位。</div></div></section>
+</body>
+</html>

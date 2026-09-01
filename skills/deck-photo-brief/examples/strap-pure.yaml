@@ -1,0 +1,115 @@
+# 通用性驗證用的第二個產品資料 —— 值全部來自 00-evidence/產品行銷定位和風格提案.pdf
+# 逐頁渲染後人工判讀（p4 定位矩陣、p6-9 受眾輪廓、p11 溝通主軸、p13-16 產品切角）。
+# 這份不是本案交付物，是用來證明「同一支生成器換資料就能出另一個產品的簡報」。
+project: {product_name: STRAP Pure}
+product_spec:
+  price: null
+  price_positioning: null
+  features: []
+colors: []
+part1:
+  chapter: {index: 1, zh: 產品定位, en: PRODUCT POSITIONING}
+  product_name: STRAP Pure
+  sections_order: [spec, matrix, swot, audience, comms, pitch]
+  nav_sections: [定位矩陣, 優勢與挑戰, 受眾輪廓]
+  # ── 畫面文案層 ──────────────────────────────────────────────
+  # 會出現在版面上的每一個字都在這裡。程式裡不留任何畫面用中文字串，
+  # 換產業（消費電子→餐飲→B2B）只要換這一段，不用改生成器。
+  labels:
+    sections:
+      spec: 產品規格
+      matrix: 定位矩陣
+      swot: 優勢與挑戰
+      audience: 受眾輪廓
+      persona: 人物誌
+      comms: 市場溝通主軸
+      pitch: 產品切角
+      pitch_recap: 產品切角 · Recap
+    spec_page:
+      price_title: MSRP / 建議售價
+      features_lead: '{n} 大特色勝出'      # {n} 由賣點數代入
+      colors_lead: '{n} 種顏色'
+    persona_page: {background: 背景資訊, consumer: 消費行為}
+    pitch_page:
+      prefix: 提案
+      concept_label: CONCEPT
+      recap_head: [提案, 主標語, 副標]
+    swot_quadrants:                        # 四格是框架、譯名是文案
+      - {key: strengths,     zh: 優勢, en: Strengths}
+      - {key: weaknesses,    zh: 劣勢, en: Weaknesses}
+      - {key: opportunities, zh: 機會, en: Opportunities}
+      - {key: threats,       zh: 威脅, en: Threats}
+    placeholders:                          # 沒有值時空槽裡顯示的欄位名
+      product: 產品名稱
+      price: 售價
+      price_positioning: 價格定位
+      features: 賣點關鍵字
+      axis: 軸標籤
+      axis_tag: 軸名
+      quadrant: 特徵描述
+      swot_item: 條目
+      persona_name: 名稱
+      persona_narrative: 生活型態描述
+      persona_title: 職稱
+      persona_person: 姓名
+      persona_story: 3–4 句生活敘述
+      comms_axis: 核心概念
+      pitch_headline: 主標語
+      pitch_product: 產品命名
+      pitch_subtitle: 副標
+      pitch_concept: 概念介紹 3–4 句
+      recap_headline: 主標
+      recap_subtitle: 副標
+  positioning_matrix:
+
+    axis_v: {tag: 產品功能, top: 一般功能, bottom: 差異化功能}
+    axis_h: {tag: 品牌發展, left: 主力品項, right: 輔推品項}
+    quadrants:
+      tl: [品牌調性鮮明且知名度高, 款式多樣、選擇性多元]
+      tr: [以滿足基本使用需求為主, 有主推款式、整體樣式少]
+      bl: [產品具有獨創研發技術, 手機掛繩為明星產品]
+      br: [具有獨特賣點或特色, 賣場多分類為周邊配件]
+    competitors:
+      - {name: topologie,   x: -0.36, y:  0.22}
+      - {name: CASETiFY,    x: -0.12, y:  0.30}
+      - {name: MAGEASY,     x:  0.30, y:  0.28}
+      - {name: DEVILCASE,   x: -0.02, y:  0.06}
+      - {name: XOUXOU,      x: -0.28, y:  0.00}
+      - {name: TOYSELECT,   x:  0.18, y:  0.00}
+      - {name: RHINOSHIELD, x: -0.10, y: -0.12}
+      - {name: bitplay,     x: -0.26, y: -0.30}
+    own: {x: 0.28, y: -0.32}
+  swot:
+    strengths: [繩索加長型 7.5mm 掛片, 可掛繩設計適配多場景, 材質與作工具品牌辨識度]
+    weaknesses: [繩索寬度僅 6mm 一種尺寸、5 色供挑選, 售價相對偏高]
+    opportunities: []
+    threats: []
+  personas:
+    - name: 都市上班族
+      title: 科技品牌行銷經理
+      person: David
+      narrative: 工作為 David 平時的生活重心，但同時也追求 work-life balance 的生活方式；時常關注各種最新的科技資訊，願意花錢投資在能幫助生活更便利高效的產品與周邊配件。
+      background: {性別: 男, 年紀: 35-39, 居住地: 台北, 家庭狀況: 已婚, 教育程度: 碩士畢業}
+      consumer:
+        興趣: 商業閱讀、科技產品、咖啡文化、烹飪、旅行
+        目標: 需要一款時尚又實用的配件來提高生活和工作的效率。
+        痛點: 工作繁忙，經常在車上、辦公室和會議間切換；傳統的攜帶方式不夠靈活和方便。
+        使用社群: LINE、Instagram、Facebook、Threads
+    - name: 時尚潮人
+      title: 自媒體工作者
+      person: Ellie
+      narrative: null
+      background: {性別: null, 年紀: null, 居住地: null, 家庭狀況: null, 教育程度: null}
+      consumer: {興趣: null, 目標: null, 痛點: null, 使用社群: null}
+    - name: 戶外愛好者
+      title: UI-UX 設計師
+      person: Olivia
+      narrative: null
+      background: {性別: null, 年紀: null, 居住地: null, 家庭狀況: null, 教育程度: null}
+      consumer: {興趣: null, 目標: null, 痛點: null, 使用社群: null}
+  communication_axes: [個人風采, 風格態度, 駕馭自如]
+  pitches:
+    - {headline: 自帶氣場，內外兼具, product_name: STRAP Pure 專屬香氛手機掛繩, subtitle: null, concept: null}
+    - {headline: 玩美，輕鬆切換！,   product_name: STRAP Pure 行動香氛手機掛繩, subtitle: null, concept: null}
+    - {headline: 香遇，在生活中的每刻, product_name: STRAP Pure 編織擴香手機背繩, subtitle: null, concept: null}
+  brand_refs: [CASETiFY, XOUXOU, LOUVE]

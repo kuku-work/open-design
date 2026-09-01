@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<title>STRAP Pure · 產品定位</title>
+<style>
+:root{--bg:#fff;--fg:#262626;--fg2:#6b6b6b;--muted:#9a9a9a;--accent:#d97d35;
+--dark:#2f3a38;--line:#d9d9d9;--soft:#f2f0ec;
+--fd:Cambria,"Songti TC","Noto Serif TC",serif;
+--fb:Calibri,"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#4a4a48;font-family:var(--fb);color:var(--fg);padding:18pt 0}
+.slide{position:relative;width:960pt;height:540pt;background:var(--bg);
+overflow:hidden;margin:0 auto 18pt;box-shadow:0 2pt 12pt rgba(0,0,0,.4)}
+.bar{position:absolute;left:0;top:0;width:37.6pt;height:100%;background:var(--dark)}
+.rule{position:absolute;left:0;top:48.27pt;width:100%;height:.75pt;background:var(--dark)}
+.crumb{position:absolute;left:53.6pt;top:13.2pt;font-size:11pt;color:#595959}
+.nv{position:absolute;top:13.2pt;width:111.6pt;text-align:center;font-size:10pt;color:var(--line)}
+.nv.on{color:#5e5e5e;font-weight:600}
+.nvsep{position:absolute;top:13.2pt;width:.75pt;height:17pt;background:var(--line)}
+.ttl{position:absolute;font-size:19pt;font-weight:600;letter-spacing:.02em}
+.pgn{position:absolute;font-size:8pt;color:var(--muted)}
+.body{position:absolute;left:69.6pt;top:128pt;right:69.6pt;bottom:53.33pt}
+.bk{display:inline-block;min-width:52pt;padding:2pt 8pt;border:.75pt dashed #c9c5bd;
+border-radius:3pt;background:#fbfaf8;color:#b3aea4;font-size:8.5pt;line-height:1.5}
+.vl2{display:block;font-size:9.5pt;line-height:1.7;color:var(--fg2)}
+.vl2::before{content:"• ";color:var(--accent)}
+.sep{background:var(--dark);color:#fff}
+.sep .bignum{position:absolute;left:696pt;top:-55.2pt;font-family:var(--fb);
+font-weight:700;font-size:373.33pt;line-height:1;color:#fff}
+.sep .chname{position:absolute;left:38.27pt;top:83.87pt}
+.sep .zh{font-size:29pt;font-weight:600;letter-spacing:.08em}
+.sep .en{font-size:29pt;font-weight:700;margin-top:6pt}
+.sep .toc{position:absolute;left:38.27pt;top:300pt;list-style:none;width:253.47pt}
+.sep .toc li{display:flex;justify-content:space-between;align-items:baseline;
+height:36.93pt;border-bottom:.75pt solid rgba(255,255,255,.55);font-size:11pt}
+.sep .toc em{font-style:normal;color:var(--accent)}
+.center{position:absolute;inset:0;display:flex;flex-direction:column;
+align-items:center;justify-content:center;text-align:center}
+.c-name{font-size:10pt;letter-spacing:.34em;color:var(--muted);margin-bottom:20pt}
+.c-main{font-size:26pt;font-weight:700}
+.c-sub{font-size:14pt;color:var(--accent);margin-top:10pt}
+.c-quote{margin-top:52pt;font-family:var(--fd);font-size:17pt;color:var(--dark)}
+.c-lead{font-size:13pt;font-weight:600}
+.c-lead.sp{margin-top:56pt}
+.frow{display:flex;align-items:baseline;gap:26pt;margin-top:22pt}
+.fx{font-size:34pt;color:var(--line);font-weight:200}
+.fw b{display:block;font-size:38pt;font-weight:400;color:var(--accent);letter-spacing:.06em}
+.fw span{display:block;font-size:11pt;color:var(--fg2);margin-top:8pt}
+.swrow{display:flex;gap:20pt;margin-top:18pt}
+.sw{text-align:center;font-size:9pt;color:var(--fg2)}
+.sw i{display:block;width:26pt;height:26pt;border-radius:50%;margin:0 auto 6pt;
+border:.5pt solid var(--line)}
+.matrix{position:relative;width:100%;height:100%}
+.ax-h{position:absolute;left:8%;right:8%;top:50%;height:.9pt;background:#4a4a48}
+.ax-v{position:absolute;top:6%;bottom:6%;left:50%;width:.9pt;background:#4a4a48}
+.ah-tip{position:absolute;right:8%;top:50%;transform:translate(50%,-50%);
+border-left:6pt solid #4a4a48;border-top:3.5pt solid transparent;border-bottom:3.5pt solid transparent}
+.av-tip{position:absolute;left:50%;top:6%;transform:translate(-50%,-50%);
+border-bottom:6pt solid #4a4a48;border-left:3.5pt solid transparent;border-right:3.5pt solid transparent}
+.ax-lb{position:absolute;font-size:12pt;font-weight:600}
+.ax-lb.top{left:50%;top:0;transform:translate(-50%,-130%)}
+.ax-lb.bottom{left:50%;bottom:0;transform:translate(-50%,130%)}
+.ax-lb.left{left:0;top:50%;transform:translateY(-50%)}
+.ax-lb.right{right:0;top:50%;transform:translateY(-50%)}
+.ax-tag{position:absolute;background:#7f7f7f;color:#fff;font-size:9pt;
+padding:4pt 9pt;line-height:1.3;text-align:center}
+.ax-tag.t{left:50%;top:-11%;transform:translateX(-50%)}
+.ax-tag.l{left:-3%;top:37%}
+.qd{position:absolute;width:31%;display:flex;flex-direction:column;gap:4pt}
+.qd.tl{left:11%;top:2%}.qd.tr{right:1%;top:2%}
+.qd.bl{left:11%;bottom:2%}.qd.br{right:1%;bottom:2%}
+.cmp{position:absolute;transform:translate(-50%,-50%);font-size:10pt;font-weight:600;color:#4a4a48}
+.ownmark{position:absolute;transform:translate(-50%,-50%);border:1pt solid var(--accent);
+color:var(--accent);font-size:9pt;padding:5pt 11pt;border-radius:2pt;white-space:nowrap}
+.ownmark.ph{left:78%;top:72%}
+.swot{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;
+gap:14pt;width:100%;height:100%}
+.sc{border:.75pt solid var(--line);display:flex;flex-direction:column}
+.sh{background:var(--soft);padding:7pt 11pt;font-size:11pt;font-weight:600}
+.sh em{font-style:normal;font-size:8.5pt;color:var(--muted);margin-left:7pt}
+.sb{padding:11pt;display:flex;flex-direction:column;gap:5pt;align-items:flex-start}
+.prow{display:flex;gap:21pt;height:100%;align-items:center}
+.pcard{flex:1;border:.75pt solid var(--line);padding:18pt;text-align:center}
+.pimg{width:84pt;height:84pt;border-radius:50%;background:var(--soft);margin:0 auto 12pt}
+.pimg.lg{width:96pt;height:96pt;margin:0 16pt 0 0;flex:0 0 auto}
+.pcard b{display:block;font-size:14pt;margin-bottom:9pt}
+.phero{display:flex;align-items:center;background:#f6f8fa;padding:14pt 16pt;border-radius:6pt}
+.pmeta b{display:block;font-size:12pt}
+.pmeta i{display:block;font-style:normal;margin:5pt 0 8pt}
+.ptables{display:flex;gap:26pt;margin-top:16pt}
+.pt{flex:1;display:flex;align-items:flex-start;gap:8pt}
+.ptag{writing-mode:vertical-rl;background:var(--soft);color:var(--fg2);
+font-size:9pt;padding:9pt 4pt;border-radius:3pt;letter-spacing:.15em}
+.pt table{flex:1;border-collapse:collapse;font-size:9pt}
+.pt th{background:#e8eef3;font-weight:600;padding:5pt 9pt;white-space:nowrap;
+border:.5pt solid #fff;text-align:center}
+.pt td{padding:4pt 9pt;border-bottom:.5pt solid var(--line)}
+.venn{position:relative;width:100%;height:100%}
+.vc{position:absolute;transform:translate(-50%,-50%);border:1pt solid var(--accent);
+border-radius:50%;width:172pt;height:172pt;opacity:.55}
+.vl{position:absolute;transform:translate(-50%,-50%);font-size:9.5pt;text-align:center}
+.pitch{display:flex;gap:26pt;height:100%}
+.pl{flex:1;display:flex;flex-direction:column;justify-content:center;gap:9pt;align-items:flex-start}
+.pill{background:var(--accent);color:#fff;font-size:9pt;padding:3pt 11pt;border-radius:9pt}
+.ph{font-size:20pt;font-weight:600}
+.pn{border-bottom:1.5pt solid var(--accent);padding-bottom:3pt}
+.pc{margin-top:9pt}
+.pc label{display:block;font-size:8pt;letter-spacing:.2em;color:var(--muted);margin-bottom:5pt}
+.pr{width:38%;background:var(--soft);border-radius:4pt}
+.recap{width:100%;border-collapse:collapse;font-size:10pt}
+.recap th{background:var(--soft);padding:8pt 11pt;text-align:left;font-weight:600}
+.recap td{padding:9pt 11pt;border-bottom:.5pt solid var(--line)}
+</style>
+</head>
+<body>
+<section class="slide sep"><div class="bignum">1</div><div class="chname"><div class="zh">產品定位</div><div class="en">PRODUCT POSITIONING</div></div><ul class="toc"><li><span>產品規格</span><em>02</em></li><li><span>定位矩陣</span><em>04</em></li><li><span>優勢與挑戰</span><em>05</em></li><li><span>受眾輪廓</span><em>06</em></li><li><span>市場溝通主軸</span><em>10</em></li><li><span>產品切角</span><em>11</em></li></ul></section>
+<section class="slide"><div class="bar"></div><div class="rule"></div><div class="crumb">產品定位</div><div class="nv" style="left:619.33pt">定位矩陣</div><div class="nv" style="left:726.93pt">優勢與挑戰</div><div class="nv" style="left:836.53pt">受眾輪廓</div><div class="nvsep" style="left:728.93pt"></div><div class="nvsep" style="left:838.53pt"></div><div class="pgn" style="left:915.73pt;top:510.8pt">02</div><div class="center"><div class="c-name">STRAP Pure</div><div class="c-main">MSRP / 建議售價　<span class="bk">售價</span></div><div class="c-sub"><span class="bk">價格定位</span></div></div></section>
+<section class="slide"><div class="bar"></div><div class="rule"></div><div class="crumb">產品定位</div><div class="nv" style="left:619.33pt">定位矩陣</div><div class="nv" style="left:726.93pt">優勢與挑戰</div><div class="nv" style="left:836.53pt">受眾輪廓</div><div class="nvsep" style="left:728.93pt"></div><div class="nvsep" style="left:838.53pt"></div><div class="pgn" style="left:915.73pt;top:510.8pt">03</div><div class="center"><div class="c-lead">0 大特色勝出</div><div class="frow"><span class="bk">賣點關鍵字</span></div></div></section>
+<section class="slide"><div class="bar"></div><div class="rule"></div><div class="crumb">產品定位</div><div class="nv on" style="left:619.33pt">定位矩陣</div><div class="nv" style="left:726.93pt">優勢與挑戰</div><div class="nv" style="left:836.53pt">受眾輪廓</div><div class="nvsep" style="left:728.93pt"></div><div class="nvsep" style="left:838.53pt"></div><div class="ttl" style="left:69.6pt;top:69.47pt">定位矩陣</div><div class="pgn" style="left:915.73pt;top:510.8pt">04</div><div class="body"><div class="matrix"><div class="ax-h"></div><div class="ax-v"></div><div class="ah-tip"></div><div class="av-tip"></div><div class="ax-lb top">一般功能</div><div class="ax-lb bottom">差異化功能</div><div class="ax-lb left">主力品項</div><div class="ax-lb right">輔推品項</div><div class="ax-tag t">產品功能</div><div class="ax-tag l">品牌發展</div><div class="qd tl"><span class="vl2">品牌調性鮮明且知名度高</span><span class="vl2">款式多樣、選擇性多元</span></div><div class="qd tr"><span class="vl2">以滿足基本使用需求為主</span><span class="vl2">有主推款式、整體樣式少</span></div><div class="qd bl"><span class="vl2">產品具有獨創研發技術</span><span class="vl2">手機掛繩為明星產品</span></div><div class="qd br"><span class="vl2">具有獨特賣點或特色</span><span class="vl2">賣場多分類為周邊配件</span></div><div class="cmp" style="left:35.6%;top:41.2%">topologie</div><div class="cmp" style="left:45.2%;top:38%">CASETiFY</div><div class="cmp" style="left:62%;top:38.8%">MAGEASY</div><div class="cmp" style="left:49.2%;top:47.6%">DEVILCASE</div><div class="cmp" style="left:38.8%;top:50%">XOUXOU</div><div class="cmp" style="left:57.2%;top:50%">TOYSELECT</div><div class="cmp" style="left:46%;top:54.8%">RHINOSHIELD</div><div class="cmp" style="left:39.6%;top:62%">bitplay</div><div class="ownmark" style="left:61.2%;top:62.8%">STRAP Pure</div></div></div></section>
+<section class="slide"><div class="bar"></div><div class="rule"></div><div class="crumb">產品定位</div><div class="nv" style="left:619.33pt">定位矩陣</div><div class="nv on" style="left:726.93pt">優勢與挑戰</div><div class="nv" style="left:836.53pt">受眾輪廓</div><div class="nvsep" style="left:728.93pt"></div><div class="nvsep" style="left:838.53pt"></div><div class="ttl" style="left:69.6pt;top:69.47pt">優勢與挑戰</div><div class="pgn" style="left:915.73pt;top:510.8pt">05</div><div class="body"><div class="swot"><div class="sc"><div class="sh">優勢<em>Strengths</em></div><div class="sb"><span class="vl2">繩索加長型 7.5mm 掛片</span><span class="vl2">可掛繩設計適配多場景</span><span class="vl2">材質與作工具品牌辨識度</span></div></div><div class="sc"><div class="sh">劣勢<em>Weaknesses</em></div><div class="sb"><span class="vl2">繩索寬度僅 6mm 一種尺寸、5 色供挑選</span><span class="vl2">售價相對偏高</span></div></div><div class="sc"><div class="sh">機會<em>Opportunities</em></div><div class="sb"><span class="bk">條目</span><span class="bk">條目</span><span class="bk">條目</span></div></div><div class="sc"><div class="sh">威脅<em>Threats</em></div><div class="sb"><span class="bk">條目</span><span class="bk">條目</span><span class="bk">條目</span></div></div></div></div></section>
+<section class="slide"><div class="bar"></div><div class="rule"></div><div class="crumb">產品定位</div><div class="nv" style="left:619.33pt">定位矩陣</div><div class="nv" style="left:726.93pt">優勢與挑戰</div><div class="nv on" style="left:836.53pt">受眾輪廓</div><div class="nvsep" style="left:728.93pt"></div><div class="nvsep" style="left:838.53pt"></div><div class="ttl" style="left:69.6pt;top:69.47pt">受眾輪廓</div><div class="pgn" style="left:915.73pt;top:510.8pt">06</div><div class="body"><div class="prow"><div class="pcard"><div class="pimg"></div><b>都市上班族</b><span>工作為 David 平時的生活重心，但同時也追求 work-life balance 的生活方式；時常關注各種最新的科技資訊，願意花錢投資在能幫助生活更便利高效的產品與周邊配件。</span></div><div class="pcard"><div class="pimg"></div><b>時尚潮人</b><span><span class="bk">生活型態描述</span></span></div><div class="pcard"><div class="pimg"></div><b>戶外愛好者</b><span><span class="bk">生活型態描述</span></span></div></div></div></section>
+<section class="slide"><div class="bar"></div><div class="rule"></div><div class="crumb">產品定位</div><div class="nv" style="left:619.33pt">定位矩陣</div><div class="nv" style="left:726.93pt">優勢與挑戰</div><div class="nv on" style="left:836.53pt">受眾輪廓</div><div class="nvsep" style="left:728.93pt"></div><div class="nvsep" style="left:838.53pt"></div><div class="ttl" style="left:69.6pt;top:69.47pt">人物誌 01 － 都市上班族</div><div class="pgn" style="left:915.73pt;top:510.8pt">07</div><div class="body"><div class="phero"><div class="pimg lg"></div><div class="pmeta"><b>科技品牌行銷經理</b><i>David</i><p>工作為 David 平時的生活重心，但同時也追求 work-life balance 的生活方式；時常關注各種最新的科技資訊，願意花錢投資在能幫助生活更便利高效的產品與周邊配件。</p></div></div><div class="ptables"><div class="pt"><div class="ptag">背景資訊</div><table><tr><th>性別</th><td>男</td></tr><tr><th>年紀</th><td>35-39</td></tr><tr><th>居住地</th><td>台北</td></tr><tr><th>家庭狀況</th><td>已婚</td></tr><tr><th>教育程度</th><td>碩士畢業</td></tr></table></div><div class="pt"><div class="ptag">消費行為</div><table><tr><th>興趣</th><td>商業閱讀、科技產品、咖啡文化、烹飪、旅行</td></tr><tr><th>目標</th><td>需要一款時尚又實用的配件來提高生活和工作的效率。</td></tr><tr><th>痛點</th><td>工作繁忙，經常在車上、辦公室和會議間切換；傳統的攜帶方式不夠靈活和方便。</td></tr><tr><th>使用社群</th><td>LINE、Instagram、Facebook、Threads</td></tr></table></div></div></div></section>
+<section class="slide"><div class="bar"></div><div class="rule"></div><div class="crumb">產品定位</div><div class="nv" style="left:619.33pt">定位矩陣</div><div class="nv" style="left:726.93pt">優勢與挑戰</div><div class="nv on" style="left:836.53pt">受眾輪廓</div><div class="nvsep" style="left:728.93pt"></div><div class="nvsep" style="left:838.53pt"></div><div class="ttl" style="left:69.6pt;top:69.47pt">人物誌 02 － 時尚潮人</div><div class="pgn" style="left:915.73pt;top:510.8pt">08</div><div class="body"><div class="phero"><div class="pimg lg"></div><div class="pmeta"><b>自媒體工作者</b><i>Ellie</i><p><span class="bk">3–4 句生活敘述</span></p></div></div><div class="ptables"><div class="pt"><div class="ptag">背景資訊</div><table><tr><th>性別</th><td><span class="bk"></span></td></tr><tr><th>年紀</th><td><span class="bk"></span></td></tr><tr><th>居住地</th><td><span class="bk"></span></td></tr><tr><th>家庭狀況</th><td><span class="bk"></span></td></tr><tr><th>教育程度</th><td><span class="bk"></span></td></tr></table></div><div class="pt"><div class="ptag">消費行為</div><table><tr><th>興趣</th><td><span class="bk"></span></td></tr><tr><th>目標</th><td><span class="bk"></span></td></tr><tr><th>痛點</th><td><span class="bk"></span></td></tr><tr><th>使用社群</th><td><span class="bk"></span></td></tr></table></div></div></div></section>
+<section class="slide"><div class="bar"></div><div class="rule"></div><div class="crumb">產品定位</div><div class="nv" style="left:619.33pt">定位矩陣</div><div class="nv" style="left:726.93pt">優勢與挑戰</div><div class="nv on" style="left:836.53pt">受眾輪廓</div><div class="nvsep" style="left:728.93pt"></div><div class="nvsep" style="left:838.53pt"></div><div class="ttl" style="left:69.6pt;top:69.47pt">人物誌 03 － 戶外愛好者</div><div class="pgn" style="left:915.73pt;top:510.8pt">09</div><div class="body"><div class="phero"><div class="pimg lg"></div><div class="pmeta"><b>UI-UX 設計師</b><i>Olivia</i><p><span class="bk">3–4 句生活敘述</span></p></div></div><div class="ptables"><div class="pt"><div class="ptag">背景資訊</div><table><tr><th>性別</th><td><span class="bk"></span></td></tr><tr><th>年紀</th><td><span class="bk"></span></td></tr><tr><th>居住地</th><td><span class="bk"></span></td></tr><tr><th>家庭狀況</th><td><span class="bk"></span></td></tr><tr><th>教育程度</th><td><span class="bk"></span></td></tr></table></div><div class="pt"><div class="ptag">消費行為</div><table><tr><th>興趣</th><td><span class="bk"></span></td></tr><tr><th>目標</th><td><span class="bk"></span></td></tr><tr><th>痛點</th><td><span class="bk"></span></td></tr><tr><th>使用社群</th><td><span class="bk"></span></td></tr></table></div></div></div></section>
+<section class="slide"><div class="bar"></div><div class="rule"></div><div class="crumb">產品定位</div><div class="nv" style="left:619.33pt">定位矩陣</div><div class="nv" style="left:726.93pt">優勢與挑戰</div><div class="nv" style="left:836.53pt">受眾輪廓</div><div class="nvsep" style="left:728.93pt"></div><div class="nvsep" style="left:838.53pt"></div><div class="ttl" style="left:69.6pt;top:69.47pt">市場溝通主軸</div><div class="pgn" style="left:915.73pt;top:510.8pt">10</div><div class="body"><div class="venn"><div class="vc" style="left:50%;top:30%"></div><div class="vc" style="left:34%;top:62%"></div><div class="vc" style="left:66%;top:62%"></div><div class="vl" style="left:50%;top:30%">個人風采</div><div class="vl" style="left:34%;top:62%">風格態度</div><div class="vl" style="left:66%;top:62%">駕馭自如</div></div></div></section>
+<section class="slide"><div class="bar"></div><div class="rule"></div><div class="crumb">產品定位</div><div class="nv" style="left:619.33pt">定位矩陣</div><div class="nv" style="left:726.93pt">優勢與挑戰</div><div class="nv" style="left:836.53pt">受眾輪廓</div><div class="nvsep" style="left:728.93pt"></div><div class="nvsep" style="left:838.53pt"></div><div class="ttl" style="left:69.6pt;top:69.47pt">產品切角</div><div class="pgn" style="left:915.73pt;top:510.8pt">11</div><div class="body"><div class="pitch"><div class="pl"><div class="pill">提案 01</div><div class="ph">自帶氣場，內外兼具</div><div class="pn">STRAP Pure 專屬香氛手機掛繩</div><div class="ps"><span class="bk">副標</span></div><div class="pc"><label>CONCEPT</label><span class="bk">概念介紹 3–4 句</span></div></div><div class="pr"></div></div></div></section>
+<section class="slide"><div class="bar"></div><div class="rule"></div><div class="crumb">產品定位</div><div class="nv" style="left:619.33pt">定位矩陣</div><div class="nv" style="left:726.93pt">優勢與挑戰</div><div class="nv" style="left:836.53pt">受眾輪廓</div><div class="nvsep" style="left:728.93pt"></div><div class="nvsep" style="left:838.53pt"></div><div class="ttl" style="left:69.6pt;top:69.47pt">產品切角</div><div class="pgn" style="left:915.73pt;top:510.8pt">12</div><div class="body"><div class="pitch"><div class="pl"><div class="pill">提案 02</div><div class="ph">玩美，輕鬆切換！</div><div class="pn">STRAP Pure 行動香氛手機掛繩</div><div class="ps"><span class="bk">副標</span></div><div class="pc"><label>CONCEPT</label><span class="bk">概念介紹 3–4 句</span></div></div><div class="pr"></div></div></div></section>
+<section class="slide"><div class="bar"></div><div class="rule"></div><div class="crumb">產品定位</div><div class="nv" style="left:619.33pt">定位矩陣</div><div class="nv" style="left:726.93pt">優勢與挑戰</div><div class="nv" style="left:836.53pt">受眾輪廓</div><div class="nvsep" style="left:728.93pt"></div><div class="nvsep" style="left:838.53pt"></div><div class="ttl" style="left:69.6pt;top:69.47pt">產品切角</div><div class="pgn" style="left:915.73pt;top:510.8pt">13</div><div class="body"><div class="pitch"><div class="pl"><div class="pill">提案 03</div><div class="ph">香遇，在生活中的每刻</div><div class="pn">STRAP Pure 編織擴香手機背繩</div><div class="ps"><span class="bk">副標</span></div><div class="pc"><label>CONCEPT</label><span class="bk">概念介紹 3–4 句</span></div></div><div class="pr"></div></div></div></section>
+<section class="slide"><div class="bar"></div><div class="rule"></div><div class="crumb">產品定位</div><div class="nv" style="left:619.33pt">定位矩陣</div><div class="nv" style="left:726.93pt">優勢與挑戰</div><div class="nv" style="left:836.53pt">受眾輪廓</div><div class="nvsep" style="left:728.93pt"></div><div class="nvsep" style="left:838.53pt"></div><div class="ttl" style="left:69.6pt;top:69.47pt">產品切角 · Recap</div><div class="pgn" style="left:915.73pt;top:510.8pt">14</div><div class="body"><table class="recap"><tr><th>提案</th><th>主標語</th><th>副標</th></tr><tr><td>提案 01</td><td>自帶氣場，內外兼具</td><td><span class="bk">副標</span></td></tr><tr><td>提案 02</td><td>玩美，輕鬆切換！</td><td><span class="bk">副標</span></td></tr><tr><td>提案 03</td><td>香遇，在生活中的每刻</td><td><span class="bk">副標</span></td></tr></table></div></section>
+</body>
+</html>

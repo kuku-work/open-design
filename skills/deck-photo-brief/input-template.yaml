@@ -1,0 +1,107 @@
+product_spec:
+  price: null
+  price_positioning: null
+  weight: null
+  positioning_statement: null
+  features: []
+colors: []
+part1:
+  product_name: null
+  sections_order:
+  - spec
+  - matrix
+  - swot
+  - audience
+  - comms
+  - pitch
+  nav_sections:
+  - 定位矩陣
+  - 優勢與挑戰
+  - 受眾輪廓
+  chapter:
+    index: 1
+    zh: 行銷 Brief
+    en: MARKETING BRIEF
+  positioning_matrix:
+    axis_v:
+      tag: null
+      top: null
+      bottom: null
+    axis_h:
+      tag: null
+      left: null
+      right: null
+    quadrants:
+      tl: []
+      tr: []
+      bl: []
+      br: []
+    competitors: []
+    own: null
+  swot:
+    strengths: []
+    weaknesses: []
+    opportunities: []
+    threats: []
+  personas: []
+  communication_axes: []
+  pitches: []
+  brand_refs: []
+  labels:
+    sections:
+      spec: 產品規格
+      matrix: 定位矩陣
+      swot: 優勢與挑戰
+      audience: 受眾輪廓
+      persona: 人物誌
+      comms: 市場溝通主軸
+      pitch: 產品切角
+      pitch_recap: 產品切角 · Recap
+    persona_page:
+      background: 背景資訊
+      consumer: 消費行為
+    pitch_page:
+      prefix: 提案
+      concept_label: CONCEPT
+      recap_head:
+      - 提案
+      - 主標語
+      - 副標
+    swot_quadrants:
+    - key: strengths
+      zh: 優勢
+      en: Strengths
+    - key: weaknesses
+      zh: 劣勢
+      en: Weaknesses
+    - key: opportunities
+      zh: 機會
+      en: Opportunities
+    - key: threats
+      zh: 威脅
+      en: Threats
+    placeholders:
+      product: 產品名稱
+      price: 售價
+      price_positioning: 價格定位
+      features: 賣點關鍵字
+      axis: 軸標籤
+      axis_tag: 軸名
+      quadrant: 特徵描述
+      swot_item: 條目
+      persona_name: 名稱
+      persona_narrative: 生活型態描述
+      persona_title: 職稱
+      persona_person: 姓名
+      persona_story: 3–4 句生活敘述
+      comms_axis: 核心概念
+      pitch_headline: 主標語
+      pitch_product: 產品命名
+      pitch_subtitle: 副標
+      pitch_concept: 概念介紹 3–4 句
+      recap_headline: 主標
+      recap_subtitle: 副標
+    spec_page:
+      price_title: MSRP / 建議售價
+      features_lead: '{n} 大特色勝出'
+      colors_lead: '{n} 種顏色'

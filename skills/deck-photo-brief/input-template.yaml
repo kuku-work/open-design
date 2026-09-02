@@ -4,7 +4,43 @@ product_spec:
   weight: null
   positioning_statement: null
   features: []
+  # Part 3 的標準鏡位清單（standard_shots）靠這份反推；換產品要換。
+  physical_features: []
+# Part 2 用 hex／name_zh／name_en／story_title／mood／playlist／moment／closing_tag；
+# Part 3 另外用 scene／studio_zone／time_slot／model／mood_refs／props／
+# shot_count／shots（Part 2 不用）。colors[] 每筆都可以有這些子欄位，值留
+# null／[]；空陣列＝本案顏色尚未輸入（跟 personas／pitches 同一個規則）。
 colors: []
+
+# ═══════════════════════════════════════════════════════════════
+# Part 3 攝影表與前置規劃 — 頂層資料節（與 product_spec／colors 同層，
+# 不放在 part3 底下）。缺了對應的節就不出頁，不是出一頁錯的；個別欄位
+# 缺了會顯示空槽，不拿別的欄位或檔名／目錄名湊。
+# ═══════════════════════════════════════════════════════════════
+project:
+  product_name: null
+  brand: null
+  product_line: null
+  shoot_date: null
+  shoot_time: null
+  venue: null
+  owner: null
+  ship_date: null
+  launch_date: null
+  color_count_label: null
+zones: []
+standard_shots: []
+standard_shots_applies_to: null
+themes: []
+key_visual:
+  time_slot: null
+  studio_zone: null
+  scene: null
+  title: null
+  description: null
+  images: []
+schedule: []
+
 part1:
   product_name: null
   sections_order:
@@ -182,3 +218,53 @@ part2:
       lo_code: 方案代號
       lo_note: 一句話說明
       lo_whitespace: 留白比例
+
+# labels 是模板固化文案（換產品不換這些字），照抄自 gen_part3.py 的規格；
+# 其餘頂層節（project／zones／standard_shots／themes／key_visual／schedule）
+# 才是要換的資料，見檔案上半。
+part3:
+  deck_title_suffix: Part 3 攝影表與前置規劃
+  labels:
+    cover_subtitle: 拍攝計劃 Rundown ｜ Shooting Reference for Photographer
+    zone_suffix: 區
+    scene_prefix: 場景：
+    sections:
+      B: {title: 拍攝資訊 OVERVIEW, sub: null}
+      C: {title: 拍攝時間軸 SHOOTING TIMELINE, sub: 'Timeline ｜ 一日拍攝排程'}
+      D: {title: 拍攝區域 SHOOTING AREA, sub: 'Shooting Area ｜ 拍攝租借區域總覽'}
+      E: {title: 拍攝清單 STANDARD SHOT LIST, sub: 每個場景的標準鏡位清單}
+    banner_placeholder: 產品橫幅 PRODUCT BANNER
+    overview_fields:
+      - {key: shoot_date, label: 拍攝日期 DATE}
+      - {key: shoot_time, label: 拍攝時間 TIME}
+      - {key: venue,      label: 拍攝地點 VENUE}
+      - {key: owner,      label: 負責人員 OWNER}
+    infocard_eyebrow_prefix: 產品開發
+    card_fields:
+      - {key: ship_date,         label: 出貨日期 SHIP}
+      - {key: launch_date,       label: 上市日期 LAUNCH}
+      - {key: color_count_label, label: 拍攝色彩 COLORS}
+    timeline_headers: [時間, 顏色·場次, 場景, 棚區, 拍攝重點]
+    timeline_focus_default: '情境 + 產品細節 {n} 項'
+    timeline_focus_theme: '獨立主題拍攝，共 {n} 項（見獨立主題頁）'
+    schedule_lunch_marker: 午休
+    schedule_kv_marker: 主視覺 KV
+    zone_photo_caption: 區實景
+    zone_sessions_label: 場次 SESSIONS
+    shotlist_scenes_label: 適用場景 SCENES
+    shotlist_composition_label: 清單組成 COMPOSITION
+    shotlist_applies_suffix: '（共 {n} 個色彩場景）'
+    shotlist_compose: '通用 {generic} 顆 ＋ 產品特徵 {specific} 顆 ＝ {total} 顆'
+    generic_feature_marker: 通用
+    kv_primary_label: 主圖
+    kv_secondary_label: 副圖
+    mood_ref_caption: 氣氛參考
+    mood_page_title: 拍攝氣氛參考
+    mood_bleed_caption: 出血（水平貼右頁緣）
+    cutout_caption: 產品去背窗
+    mood_meta: {mood: MOOD 情緒, playlist: PLAYLIST 歌單, moment: MOMENT 時刻, props: PROPS 道具}
+    theme_eyebrow_suffix: 獨立主題 SPECIAL THEME
+    theme_shotlist_label: 'SHOT LIST（{n} 項）'
+    theme_meta: {model: MODEL 模特, session: 場次 SESSION}
+    h_count_template: '本頁 {size} 張 ｜ {name} 共 {total} 張'
+    blank_slot: 待補 — 本案輸入未提供

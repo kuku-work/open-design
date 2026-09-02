@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<title> · Part 3 攝影表與前置規劃</title>
+<style>
+:root {
+    /* ─── design-systems/photo-brief/tokens.css: all 56 variables carried over ─── */
+    --bg: #f5f5f3;
+    --surface: #ffffff;
+    --surface-warm: #fbfaf8;
+    --fg: #262626;
+    --fg-2: #6b6b6b;
+    --muted: #888888;
+    --meta: var(--muted);
+    --border: #e3e1dc;
+    --border-soft: var(--border);
+    --accent: #d97d35;
+    --accent-on: #262626;
+    --accent-hover: color-mix(in oklab, var(--accent), black 8%);
+    --accent-active: color-mix(in oklab, var(--accent), black 14%);
+    --success: #16a34a;
+    --warn: #eab308;
+    --danger: #dc2626;
+    --font-display: Cambria, "STSongti TC", "Songti TC", "Noto Serif TC", serif;
+    --font-body: Calibri, "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+    --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+    --text-xs: 9pt;
+    --text-sm: 11pt;
+    --text-base: 12pt;
+    --text-lg: 14pt;
+    --text-xl: 18pt;
+    --text-2xl: 24pt;
+    --text-3xl: 30pt;
+    --text-4xl: 66pt;
+    --leading-body: 1.5;
+    --leading-tight: 1.15;
+    --tracking-display: 0em;
+    --space-1: 3.6pt;
+    --space-2: 7.2pt;
+    --space-3: 10.8pt;
+    --space-4: 14.4pt;
+    --space-5: 18pt;
+    --space-6: 21.6pt;
+    --space-8: 28.8pt;
+    --space-12: 43.2pt;
+    --section-y-desktop: 40.3pt;
+    --section-y-tablet: 40.3pt;
+    --section-y-phone: 40.3pt;
+    --radius-sm: 6pt;
+    --radius-md: 9pt;
+    --radius-lg: 12pt;
+    --radius-pill: 9999pt;
+    --elev-flat: none;
+    --elev-ring: 0 0 0 1px var(--border);
+    --elev-raised: var(--elev-ring);
+    --focus-ring: 0 0 0 3px color-mix(in oklab, var(--accent), transparent 70%);
+    --motion-fast: 150ms;
+    --motion-base: 200ms;
+    --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+    --container-max: 873.6pt;
+    --container-gutter-desktop: 43.2pt;
+    --container-gutter-tablet: 43.2pt;
+    --container-gutter-phone: 43.2pt;
+
+    /* ─── page band skeleton (DESIGN.md §5-0), four cut points ─── */
+    --band-header-h: 108pt;     /*  0     – 108     = 30 × 3.6  */
+    --band-meta-top: 432pt;     /*  432   – 493.2   = 120 × 3.6 */
+    --band-meta-h: 61.2pt;      /*  61.2            = 17 × 3.6  */
+    --band-footer-top: 493.2pt; /*  493.2 – 540     = 137 × 3.6 */
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: #cfccc4;
+  font-family: var(--font-body);
+  color: var(--fg);
+  padding: 36pt 0 72pt;
+}
+.deck { width: 960pt; margin-inline: auto; }
+.sheet { margin-bottom: 54pt; }
+
+/* ── Page frame ─────────────────────────────────────────────────────── */
+.pg {
+  position: relative; width: 960pt; height: 540pt;
+  background: var(--bg); overflow: hidden;
+  outline: 1px solid #b6b2a8;
+}
+.pg.dark { background: var(--fg); color: var(--surface); }
+.pg.white { background: var(--surface); }
+
+/* ── Four-band skeleton ─────────────────────────────────────────────── */
+.band-head {
+  position: absolute; left: 0; top: 0; width: 960pt; height: var(--band-header-h);
+}
+.band-meta {
+  position: absolute; left: 43.2pt; top: var(--band-meta-top);
+  width: 873.6pt; height: var(--band-meta-h);
+  display: flex; align-items: flex-start;
+}
+.band-meta .mcol { flex: 1 1 0; min-width: 0; }
+.band-meta .mlab {
+  font-size: 10pt; font-weight: 700; color: var(--accent);
+  letter-spacing: .1em; line-height: 1.2;
+}
+.band-meta .mval {
+  margin-top: 5.4pt; font-size: var(--text-sm); color: var(--fg); line-height: 1.35;
+}
+.band-meta .mval.plain {
+  /* No label, single line (cover brand line): vertically centered in the 61.2 band */
+  margin-top: 25.2pt; font-size: 10pt; color: var(--fg-2); letter-spacing: .06em;
+}
+.band-meta .mslot {
+  margin-top: 5.4pt; height: 29.7pt; border: 1px dashed var(--border);
+  display: flex; align-items: center; padding-left: 7.2pt;
+  font-size: var(--text-xs); color: var(--muted);
+}
+.pg.dark .band-meta .mval.plain { color: #9b978e; }
+
+/* Inline empty-slot marker for a missing field (blank()); dark-page / KV-band variant below. */
+.bk {
+  display: inline-block; padding: 1pt 6pt; border: 1px dashed var(--border);
+  border-radius: 3pt; font-size: var(--text-xs); color: var(--muted);
+}
+.pg.dark .bk, .kvband .bk { border-color: #9b978e; color: #c9c6be; }
+
+.rule { position: absolute; left: 43.2pt; top: var(--band-footer-top); width: 873.6pt; height: 1px; background: var(--border); }
+.pg.dark .rule { background: #9b978e; }
+.pno { position: absolute; left: 933.1pt; top: 508pt; font-size: 10pt; color: var(--fg-2); line-height: 1; }
+.pno.on-dark { color: #9b978e; }
+
+/* ── Header band title group (shared) ───────────────────────────────────── */
+.hd-eyebrow {
+  position: absolute; left: 50.4pt; top: 30.7pt;
+  font-size: var(--text-base); font-weight: 700; color: var(--accent); line-height: 1;
+}
+.hd-title {
+  position: absolute; left: 50.4pt; top: 55.8pt;
+  font-family: var(--font-display); font-weight: 700; font-size: var(--text-3xl);
+  line-height: 1.15;
+}
+.hd-sub { position: absolute; left: 50.4pt; top: 90pt; font-size: var(--text-lg); color: var(--fg-2); line-height: 1; }
+.hd-right { position: absolute; right: 43.2pt; top: 29pt; font-size: var(--text-lg); font-weight: 700; color: var(--accent); line-height: 1; text-align: right; }
+.hd-right2 { position: absolute; right: 43.2pt; top: 50pt; font-size: 10pt; color: var(--fg-2); line-height: 1; text-align: right; }
+
+/* ── A Cover ───────────────────────────────────────────────────── */
+.cover-dots { position: absolute; left: 0; height: 22.1pt; width: 100%; }
+.cover-dots .dot { position: absolute; top: 0; width: 22.1pt; height: 22.1pt; border-radius: 50%; }
+.cover-name {
+  position: absolute; left: 50.4pt;
+  font-family: var(--font-display); font-weight: 700; font-size: var(--text-4xl);
+  line-height: 1; color: var(--surface);
+}
+.cover-sub { position: absolute; left: 50.4pt; font-size: var(--text-xl); color: #c9c6be; line-height: 1; }
+.cover-bar { position: absolute; left: 43.2pt; width: 2pt; background: var(--accent); }
+.cover-meta { position: absolute; left: 61.2pt; }
+.cover-meta .cm1 { font-size: 16pt; font-weight: 700; color: var(--surface); line-height: 1.35; }
+.cover-meta .cm2 { margin-top: 5pt; font-size: 13pt; color: #c9c6be; line-height: 1.35; }
+
+/* ── B Overview info card ─────────────────────────────────────────────── */
+.banner { position: absolute; left: 0; top: 0; width: 960pt; overflow: hidden; }
+.banner .ph.banner-ph { width: 960pt; height: 100%; aspect-ratio: auto; }
+.b-eyebrow { position: absolute; left: 50.4pt; font-size: var(--text-base); font-weight: 700; color: var(--accent); line-height: 1; }
+.inf-row { position: absolute; left: 50.4pt; width: 554.4pt; }
+.inf-row .inf-k { position: absolute; left: 0; top: 6pt; font-size: var(--text-sm); color: var(--fg-2); }
+.inf-row .inf-v { position: absolute; left: 215.6pt; top: 4.5pt; font-size: 13pt; color: var(--fg); }
+.inf-row .inf-line { position: absolute; left: 0; bottom: 0; width: 554.4pt; height: 1px; background: var(--border-soft); }
+.infocard {
+  position: absolute; left: 632.4pt; width: 284.4pt; height: 284.4pt;
+  background: var(--fg); color: var(--surface);
+  padding: 28.8pt 21.6pt 28.8pt 32.4pt; display: flex; flex-direction: column;
+}
+.infocard .ic-eyebrow { font-size: var(--text-base); font-weight: 700; color: var(--accent); }
+.infocard .ic-name {
+  margin-top: 10.8pt; font-family: var(--font-display); font-weight: 700;
+  font-size: var(--text-2xl); line-height: 1.15;
+}
+.infocard .ic-sub { margin-top: 3.6pt; font-size: var(--text-sm); color: #c9c6be; }
+.infocard .ic-fields { margin-top: auto; display: grid; gap: 7.2pt; }
+.cf-row { display: flex; justify-content: space-between; gap: 14.4pt; }
+.cf-row .cf-k { font-size: var(--text-sm); color: #9b978e; }
+.cf-row .cf-v { font-size: var(--text-sm); }
+
+/* ── C Timeline table ─────────────────────────────────────────────── */
+.tbl-wrap { position: absolute; left: 43.2pt; }
+table.timeline { border-collapse: collapse; width: 856.8pt; table-layout: fixed; }
+table.timeline col.c1 { width: 122.4pt; }
+table.timeline col.c2 { width: 194.4pt; }
+table.timeline col.c3 { width: 136.8pt; }
+table.timeline col.c4 { width: 64.8pt; }
+table.timeline col.c5 { width: 338.4pt; }
+table.timeline thead tr { height: 30.2pt; background: var(--fg); color: var(--surface); }
+table.timeline thead th { padding: 0 10.8pt; text-align: left; font-weight: 700; font-size: var(--text-sm); }
+table.timeline tbody tr { height: 38.2pt; }
+table.timeline tbody tr.z1 { background: var(--surface); }
+table.timeline tbody tr.z2 { background: var(--surface-warm); }
+table.timeline tbody tr.z3 { background: #efede8; }
+table.timeline tbody td { padding: 0 10.8pt; font-size: var(--text-sm); color: var(--fg); vertical-align: middle; }
+.rdot { display: inline-block; width: 14.2pt; height: 14.2pt; border-radius: 50%; vertical-align: -3pt; margin-right: 7.2pt; }
+
+/* ── D Studio zone cards ───────────────────────────────────────────────── */
+.zcard {
+  position: absolute; border-radius: 9pt; box-shadow: 0 0 0 1px #ffffff inset;
+  display: flex; flex-direction: column; align-items: center; overflow: hidden;
+}
+.zcard .zcode {
+  align-self: flex-start; font-family: var(--font-display); font-weight: 700;
+  font-size: var(--text-2xl); color: var(--surface); line-height: 1.1;
+}
+.zcard .zph { flex: 0 0 auto; }
+.zcard .zph .ph { height: 100%; width: auto; }
+
+/* ── E Two-column list ───────────────────────────────────────────────── */
+.li { position: absolute; width: 410pt; display: flex; align-items: center; }
+.li .bul { flex: 0 0 auto; width: 7.1pt; height: 7.1pt; border-radius: 50%; background: var(--accent); }
+.li .lt { display: block; padding-left: 9pt; font-size: var(--text-base); line-height: 1.2; }
+
+/* ── F KV title band ──────────────────────────────────────────────── */
+.kvband {
+  position: absolute; left: 43.2pt; top: 0; width: 873.6pt;
+  background: var(--fg); color: var(--surface); padding: 15.4pt 28.8pt;
+}
+.kvband .kv-slot { display: block; width: var(--kv-text-w); font-size: var(--text-base); font-weight: 700; color: var(--accent); line-height: 1; }
+.kvband .kv-title {
+  display: block; width: var(--kv-text-w); margin-top: 8pt; font-family: var(--font-display);
+  font-weight: 700; font-size: 26pt; line-height: 1.1;
+}
+.kvband .kv-desc { display: block; width: var(--kv-text-w); margin-top: 6pt; font-size: 13pt; color: #c9c6be; }
+.kvband .ring { position: absolute; width: 43.5pt; height: 43.5pt; border-radius: 50%; border: 1.5pt solid var(--surface); }
+.kv-row { position: absolute; }
+
+/* ── G Mood references ───────────────────────────────────────────────── */
+.g-title { position: absolute; left: 50.4pt; top: 22.7pt; font-size: 22pt; font-weight: 600; line-height: 1; }
+.g-scene { position: absolute; left: 50.4pt; top: 57pt; font-size: var(--text-base); font-weight: 700; color: var(--accent); line-height: 1; }
+.g-model { position: absolute; left: 50.4pt; top: 78pt; font-size: var(--text-sm); color: var(--fg-2); line-height: 1; }
+.cutout {
+  position: absolute; background: var(--border); display: flex;
+  align-items: center; justify-content: center; text-align: center;
+  font-size: var(--text-xs); color: var(--fg-2); line-height: 1.4;
+}
+
+/* ── H Shot grid ───────────────────────────────────────────────── */
+.h-scene { position: absolute; left: 50.4pt; top: 30.7pt; font-size: var(--text-base); font-weight: 700; color: var(--accent); line-height: 1; }
+.h-model { position: absolute; left: 50.4pt; top: 52pt; font-size: var(--text-sm); color: var(--fg-2); line-height: 1; }
+.h-range { position: absolute; right: 43.2pt; top: 29pt; font-size: var(--text-lg); font-weight: 700; color: var(--accent); line-height: 1; }
+.h-count { position: absolute; right: 43.2pt; top: 52pt; font-size: 10pt; color: var(--fg-2); line-height: 1; }
+
+/* ── I Special theme spread ───────────────────────────────────────────── */
+.i-sub { position: absolute; left: 50.4pt; font-size: var(--text-lg); color: var(--fg); line-height: 1.2; }
+.i-desc { position: absolute; left: 50.4pt; width: 400pt; font-size: var(--text-base); color: var(--fg-2); line-height: 1.45; }
+.i-lab { position: absolute; left: 50.4pt; font-size: 10pt; font-weight: 700; color: var(--accent); letter-spacing: .1em; line-height: 1; }
+.i-val { position: absolute; left: 50.4pt; font-size: 13pt; color: var(--fg); line-height: 1.3; }
+.sw-row { position: absolute; left: 0; height: 46.8pt; width: 100%; }
+.sw-row .sw { position: absolute; top: 0; width: 61.2pt; height: 46.8pt; border: 1px solid var(--border); }
+.ck { position: absolute; font-size: var(--text-sm); color: var(--fg); line-height: 1.2; width: 200pt; }
+.ck .ckm { color: var(--accent); font-weight: 700; margin-right: 5pt; }
+.i-board { position: absolute; }
+.i-board .ph { width: 100%; height: auto; }
+.i-cap { margin-top: 7.2pt; font-size: 10pt; font-style: italic; color: var(--fg-2); line-height: 1.2; }
+
+/* ── Bento-box grid (DESIGN.md §5-1, three rules) ────────────────────── */
+.grid { position: absolute; left: 43.2pt; width: 873.6pt; display: flex; flex-direction: column; }
+.prow { display: flex; justify-content: flex-start; gap: 7.2pt; }
+.cell { position: relative; height: 100%; flex: 0 0 auto; }
+.ph {
+  height: 100%; width: auto; background: var(--border);
+  display: flex; align-items: center; justify-content: center; text-align: center;
+  color: var(--fg-2); font-size: var(--text-xs); line-height: 1.35; padding: 3pt;
+}
+.idx { position: absolute; left: 3.5pt; top: calc(100% + 8pt); font-size: var(--text-xs); color: var(--muted); line-height: 1; }
+.hero-block { display: flex; align-items: flex-start; }
+.hero-side { display: flex; flex-direction: column; flex: 0 0 auto; }
+.hero-cell { flex: 0 0 auto; }
+/* G layout variants: stacked column (G-2) / absolutely positioned row (G-4) / bleed image (G-4) */
+.gstack { display: flex; flex-direction: column; }
+.gstack > .ph { width: 100%; height: auto; }
+.prow.g-abs { position: absolute; }
+.ph.g-bleed { position: absolute; width: auto; height: auto; flex-direction: column; }
+.r45 { aspect-ratio: 4 / 5; }
+.r32 { aspect-ratio: 3 / 2; }
+.r23 { aspect-ratio: 2 / 3; }
+.r169 { aspect-ratio: 16 / 9; }
+.r11 { aspect-ratio: 1 / 1; }
+
+
+</style>
+</head>
+<body>
+<div class="deck">
+
+<section class="sheet" id="p01">
+  <div class="pg dark">
+<div class="cover-dots" style="top:42.95pt"></div>
+<div class="cover-name" style="top:129.6pt"><span class="bk">待補 — 本案輸入未提供</span></div>
+<div class="cover-sub" style="top:210pt">拍攝計劃 Rundown ｜ Shooting Reference for Photographer</div>
+<div class="cover-bar" style="top:381.6pt;height:50.4pt"></div>
+<div class="cover-meta" style="top:381.6pt">
+  <div class="cm1"><span class="bk">待補 — 本案輸入未提供</span>　<span class="bk">待補 — 本案輸入未提供</span></div>
+  <div class="cm2"><span class="bk">待補 — 本案輸入未提供</span></div>
+</div>
+<div class="band-meta" style="gap:14.4pt"><div class="mcol"><div class="mval plain"><span class="bk">待補 — 本案輸入未提供</span>　｜　<span class="bk">待補 — 本案輸入未提供</span></div></div></div>
+<div class="rule"></div><div class="pno on-dark">01</div></div>
+</section>
+<section class="sheet" id="p02">
+  <div class="pg">
+<div class="banner" style="height:108pt"><div class="ph r169 banner-ph"><span>產品橫幅 PRODUCT BANNER · 960 × 108 pt</span></div></div>
+<div class="b-eyebrow" style="top:118.8pt">拍攝資訊 OVERVIEW</div>
+<div class="inf-row" style="top:140.4pt;height:82.8pt"><span class="inf-k">拍攝日期 DATE</span><span class="inf-v"><span class="bk">待補 — 本案輸入未提供</span></span><span class="inf-line"></span></div><div class="inf-row" style="top:223.2pt;height:82.8pt"><span class="inf-k">拍攝時間 TIME</span><span class="inf-v"><span class="bk">待補 — 本案輸入未提供</span></span><span class="inf-line"></span></div><div class="inf-row" style="top:306pt;height:82.8pt"><span class="inf-k">拍攝地點 VENUE</span><span class="inf-v"><span class="bk">待補 — 本案輸入未提供</span></span><span class="inf-line"></span></div><div class="inf-row" style="top:388.8pt;height:82.8pt"><span class="inf-k">負責人員 OWNER</span><span class="inf-v"><span class="bk">待補 — 本案輸入未提供</span></span><span class="inf-line"></span></div>
+<div class="infocard" style="top:158.4pt">
+  <span class="ic-eyebrow">產品開發 ｜ <span class="bk">待補 — 本案輸入未提供</span></span>
+  <span class="ic-name"><span class="bk">待補 — 本案輸入未提供</span></span>
+  <span class="ic-sub"><span class="bk">待補 — 本案輸入未提供</span></span>
+  <div class="ic-fields"><div class="cf-row"><span class="cf-k">出貨日期 SHIP</span><span class="cf-v"><span class="bk">待補 — 本案輸入未提供</span></span></div><div class="cf-row"><span class="cf-k">上市日期 LAUNCH</span><span class="cf-v"><span class="bk">待補 — 本案輸入未提供</span></span></div><div class="cf-row"><span class="cf-k">拍攝色彩 COLORS</span><span class="cf-v"><span class="bk">待補 — 本案輸入未提供</span></span></div></div>
+</div>
+<div class="rule"></div><div class="pno">02</div></div>
+</section>
+<section class="sheet" id="p03">
+  <div class="pg white">
+<div class="kvband" style="height:108pt;--kv-text-w:801.6pt">
+  <span class="kv-slot"><span class="bk">待補 — 本案輸入未提供</span> ｜ <span class="bk">待補 — 本案輸入未提供</span> 區 ｜ 場景：<span class="bk">待補 — 本案輸入未提供</span></span>
+  <span class="kv-title"><span class="bk">待補 — 本案輸入未提供</span> KEY VISUAL</span>
+  <span class="kv-desc"><span class="bk">待補 — 本案輸入未提供</span></span>
+  
+</div>
+<div class="prow kv-row" style="left:43.2pt;top:300.6pt;height:0pt;gap:6.5pt"></div>
+<div class="rule"></div><div class="pno">03</div></div>
+</section>
+</div>
+</body>
+</html>

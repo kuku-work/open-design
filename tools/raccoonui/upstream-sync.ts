@@ -568,8 +568,18 @@ async function main(): Promise<void> {
     ].join('\n'));
   };
 
-  const install = sh('pnpm install', 8 * 60_000);
-  if (!install.ok) return void rollback('pnpm install', install.tail);
+  // On Windows a plain `pnpm install` fails in ways that are all cured by rebuilding the
+  // tree, and none of which are worth telling apart: an existing node_modules entry that
+  // cannot be replaced ("UNKNOWN: unknown error, open ...package.json"), or a postinstall
+  // script running against a half-linked tree left by the previous failed install
+  // (MODULE_NOT_FOUND). Retry once with --force rather than branching on the message.
+  // RACCOONUI-PATCH: retry install with --force before rolling back — 2026-09-07
+  let install = sh('pnpm install', 8 * 60_000);
+  if (!install.ok) {
+    emit(`⚠️ *Upstream Sync ${TODAY}* — pnpm install failed, retrying once with --force.`);
+    install = sh('pnpm install --force', 15 * 60_000);
+    if (!install.ok) return void rollback('pnpm install (retried with --force)', install.tail);
+  }
 
   // 7) TDD + BDD.
   const typecheck = sh('pnpm typecheck', 8 * 60_000);

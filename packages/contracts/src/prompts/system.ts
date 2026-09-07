@@ -310,6 +310,11 @@ export function composeSystemPrompt({
   userInstructions,
   projectInstructions,
 }: ComposeInput): string {
+  // ── FORK POINT (API/BYOK side) ──────────────────────────────────────────
+  // Mirrors the daemon fork in `apps/daemon/src/prompts/system.ts`. Everything
+  // below is the legacy stack; OD Next runs return here and never reach it.
+  // Read `docs/prompt-composition.md` before changing prompt text on either
+  // side of this fork.
   if (odNextStrategyRecipe) {
     return composeOdNextStrategyRequestPromptV2(odNextStrategyRecipe, {
       agentId,
@@ -531,6 +536,9 @@ export function composeSystemPrompt({
   const hasDeckSkillSeed =
     skillMode === 'deck' && !!skillBody && /assets\/template\.html/.test(skillBody);
   if (!isAskMode && isDeckProject && !hasDeckSkillSeed) {
+    // ⚠️ This decides WHEN the legacy path gets the deck scaffold. OD Next has
+    // its own gate — `resolveOdNextDeckFrameworkMode` in `od-next-strategy.ts`.
+    // The scaffold is shared; the injection conditions are not. Change both.
     parts.push(`\n\n---\n\n${deckFrameworkDirective}`);
   } else if (
     !isAskMode &&
@@ -978,7 +986,13 @@ function promptTemplateReferenceLines(
     out.push(`### Reference prompt template — "${tpl.title}"`);
     const meta: string[] = [];
     if (tpl.category) meta.push(`category: ${tpl.category}`);
-    if (tpl.model) meta.push(`suggested model: ${tpl.model}`);
+    const suggestedModel =
+      metadata.kind === 'image' &&
+      !metadata.imageModel?.trim() &&
+      tpl.model === 'gpt-image-2'
+        ? 'vela/gpt-image-2'
+        : tpl.model;
+    if (suggestedModel) meta.push(`suggested model: ${suggestedModel}`);
     if (tpl.aspect) meta.push(`aspect: ${tpl.aspect}`);
     if (tpl.tags && tpl.tags.length > 0) {
       meta.push(`tags: ${tpl.tags.join(', ')}`);

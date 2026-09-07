@@ -1317,6 +1317,8 @@ export interface Dict {
 
   // Entry home
   'homeHero.title': string;
+  'homeHero.titleWords': string;
+  'homeHero.subtitle': string;
   'homeHero.startWithTemplate': string;
   'homeHero.startBlankProject': string;
   'homeHero.templatePicker.label': string;
@@ -1357,6 +1359,8 @@ export interface Dict {
   'homeHero.clearActivePlugin': string;
   'homeHero.clearActiveSkill': string;
   'homeHero.contextItemsResolved': string;
+  'homeHero.attachmentsScrollPrev': string;
+  'homeHero.attachmentsScrollNext': string;
   'homeHero.removeFile': string;
   'homeHero.contextSearchResults': string;
   'homeHero.contextSurfaces': string;
@@ -1535,6 +1539,8 @@ export interface Dict {
   'recentProjects.sortNewest': string;
   'recentProjects.sortOldest': string;
   'recentProjects.sortName': string;
+  /** Heading of the rail's recent-projects disclosure (最近浏览过). */
+  'recentProjects.collectionRecent': string;
   'recentProjects.viewList': string;
   'recentProjects.sharedBadge': string;
   'recentProjects.sharedProjectFallbackName': string;
